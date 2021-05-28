@@ -1,0 +1,61 @@
+﻿@using System.Reflection
+@model PropertyInfo[]
+<form asp-action="Index" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#Main" method="get">
+    <div class="input-group">
+        @Html.TextBox("keyword", null, new { @class = "form-control ", placeholder = HtmlLocalizer["Keyword"].Value })
+        <span class="input-group-append">
+            <button type="submit" class="btn  btn-info"> <i class="fa fa-search"></i> @HtmlLocalizer["Search"]</button>
+            <a data-toggle="modal" href="#Search_input" class="btn  btn-info">@HtmlLocalizer["AdvancedSearch"]</a>
+        </span>
+    </div>
+</form>
+<div id="Search_input" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@HtmlLocalizer["AdvancedSearch"]</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color: white">&times;</span>
+                </button>
+            </div>
+            <form asp-action="Index" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#Main" method="get" onsubmit="$('#Search_input').modal('hide'); $('.modal-backdrop').remove();">
+                <div class="modal-body">
+
+                    @foreach (PropertyInfo title in Model.Where(a => a.PropertyType == typeof(string) || a.PropertyType.IsValueType))
+                    {
+                        <div class="row" style="padding:2px;">
+                            <div class="col-md-2 text-right">
+                                <label style="padding-top: 5px;">
+                                    @HtmlLocalizer[title.Name]
+                                </label>
+                            </div>
+                            <div class="col-md-10 col-xl-10">
+                                @if (title.PropertyType.BaseType == typeof(Enum))
+                                {
+                                    @await Html.PartialAsync("Search_Input_System.Enum", new ViewDataDictionary(ViewData) { { "Name", title.Name }, { "typename", title.PropertyType.AssemblyQualifiedName } })
+                                }
+                                else
+                                {
+                                    var type = title.PropertyType;
+
+                                    if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
+                                    {
+                                        type = type.GetGenericArguments()[0];
+                                    }
+
+                                    @await Html.PartialAsync("Search_Input_" + type, new ViewDataDictionary(ViewData) { { "Name", title.Name } })
+                                }
+                            </div>
+                        </div>
+
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info" name="Search" value="true"> <i class="fa fa-search"></i> @HtmlLocalizer["Search"]</button>
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Agree_button">  <i class="fa fa-times"></i> @HtmlLocalizer["Close"]</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

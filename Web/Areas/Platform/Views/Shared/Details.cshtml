@@ -1,0 +1,14 @@
+﻿@using Web.Extensions
+
+<div class="row">
+    <div class="col-12" style="border-bottom:1px solid #e4e4e4">
+        <div class="float-right d-print-none">
+            <a class="btn btn-info btn-sm " onclick="window.history.back()" href="javascript:;"> <i class="fa fa-chevron-left"></i> @HtmlLocalizer["Back"]</a>
+        </div>
+        <h3>@Html.ThisControllerName() - @HtmlLocalizer["Details"]</h3>
+    </div>
+</div>
+
+<div class="row">
+    @Html.DisplayForModel()
+</div>

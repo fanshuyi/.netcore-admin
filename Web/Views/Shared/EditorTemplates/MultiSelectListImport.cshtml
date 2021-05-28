@@ -1,0 +1,45 @@
+﻿@model MultiSelectList
+
+<select asp-items="Model" multiple="multiple" id="@Html.NameForModel()" name="@Html.NameForModel()" class="select2"></select>
+
+<span onclick="$('#importExcel').click();">
+    <i class="fa fa-upload" aria-hidden="true"></i> 导入
+</span>
+<input id="importExcel" type="file" name="file" style="display: none" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+<script type="text/javascript">
+    $(function () {
+
+        $('#importExcel').change(function () {
+
+            var formData = new FormData();
+            formData.append("file", $(this)[0].files[0]);
+
+            $(this).val("");
+
+            $.ajax({
+                url: '@Url.Action("Create")',
+                type: 'POST',
+                data: formData,
+                // 告诉jQuery不要去处理发送的数据
+                processData: false,
+                // 告诉jQuery不要去设置Content-Type请求头
+                contentType: false,
+                cache: false,
+                beforeSend: function () {
+                    console.log("正在进行，请稍候");
+                },
+                success: function (responseStr) {
+                    responseStr.forEach(element => {
+
+                        $("#@Html.NameForModel()").append(`<option value="${element.value}" selected>${element.text}</option>`);
+                    }                    );
+                    $("#@Html.NameForModel()").trigger('change');
+
+                },
+                error: function (responseStr) {
+                    console.log("error");
+                }
+            });
+        });
+    })
+</script>

@@ -1,0 +1,54 @@
+﻿@using Models
+@foreach (var prop in ViewData.ModelMetadata.Properties.Where(pm => pm.ShowForDisplay && pm.ModelType != typeof(Microsoft.EntityFrameworkCore.Infrastructure.ILazyLoader)).OrderBy(a => a.Order))
+{
+
+    //if (prop.DataTypeName == "Html" || prop.DataTypeName == "MultilineText" || (prop.IsComplexType && !string.IsNullOrEmpty(prop.DataTypeName)))
+    //{
+    <div class="col-md-12 " style="line-height:2.2em;">
+        <div class="row mt-2" style="margin:0">
+            <div class="col-md-2" style="background-color:#f4f4f4;">
+                <label for="@prop.PropertyName" class="text-nowrap">
+                    @HtmlLocalizer[prop.GetDisplayName()]  @(prop.IsRequired ? "*" : "")
+                </label>
+            </div>
+
+            <div class="col-md-10">
+                @if (prop.PropertyName == "CreatedBy" || prop.PropertyName == "UpdatedBy")
+                {
+                    if (Model is DbSetBase dbsetbase)
+                    {
+                        @(prop.PropertyName == "CreatedBy" ? Html.DisplayFor(a => dbsetbase.UserCreatedBy) : Html.DisplayFor(a => dbsetbase.UserUpdatedBy))
+                    }
+                }
+                else
+                {
+                    @Html.Display(prop.PropertyName)
+                }
+            </div>
+        </div>
+    </div>
+    @*}
+        else
+        {
+            <div class="col-md-6  col-sm-12" style="line-height:32px;margin-bottom:5px;">
+                <div class="row">
+                    <div class="col-md-2 " style="background-color:#f4f4f4;">
+                        <label for="@prop.PropertyName">@_loc.GetLocalizedString(prop.GetDisplayName()) @(prop.IsRequired ? "*" : "")</label>
+                    </div>
+                    <div class="col-md-8 ">
+                        @if (prop.PropertyName == "CreatedBy" || prop.PropertyName == "UpdatedBy")
+                        {
+                            if (Model is DbSetBase dbsetbase)
+                            {
+                                @(prop.PropertyName == "CreatedBy" ? Html.DisplayFor(a => dbsetbase.UserCreatedBy) : Html.DisplayFor(a => dbsetbase.UserUpdatedBy))
+                            }
+                        }
+                        else
+                        {
+                            @Html.Display(prop.PropertyName)
+                        }
+                    </div>
+                </div>
+            </div>
+        }*@
+}

@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNetCore.Authentication;
+@using Microsoft.AspNetCore.Authorization;
+@model LoginInputModel
+@{
+    ViewBag.Title = "Login";
+}
+<div class="container">
+    <h2>@HtmlLocalizer[ViewBag.Title]</h2>
+    <hr />
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"></h3>
+                </div>
+                <div class="panel-body">
+                    @Html.ValidationSummary()
+                    <form asp-route="Login">
+
+                        <fieldset>
+                            @Html.EditorForModel()
+                            @*<div>
+                                <a asp-action="PhoneNumberLogin" asp-route-ReturnUrl="@ViewBag.ReturnUrl" style="float:right;">使用手机号验证码登录</a>
+
+                                <a href=""></a>
+
+
+
+
+                            </div>*@
+
+                            <div class="form-group">
+                                <button class="btn btn-primary" name="button" value="login">  @HtmlLocalizer["Login"]</button>
+
+                                <a asp-action="Register" asp-route-ReturnUrl="@ViewBag.ReturnUrl"> @HtmlLocalizer["Register"]</a>
+
+                                <a asp-action="ForgotPassword" asp-route-ReturnUrl="@ViewBag.ReturnUrl"> @HtmlLocalizer["ForgotPassword"]</a>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+
+                @foreach (AuthenticationScheme item in ViewBag.scheme)
+                {
+
+
+                    <form asp-action="ExternalLogin">
+                        <input type="hidden" name="Provider" value="@item.Name" />
+                        <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
+
+                        <button class="btn btn-lg btn-success m-1" type="submit">@item.DisplayName</button>
+                    </form>
+
+
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿<button class="btn-success btn" type="button" id="selectimages-@Html.NameForModel()" style="float:right;">选择图片</button>
+
+<div id="image-list-@Html.NameForModel()"></div>
+
+<input accept="image/*" type="file" multiple id="imagesInput-@Html.NameForModel()" style="display: none" />
+
+<input type="hidden" id="@Html.NameForModel()" name="@Html.NameForModel()" value="@(Model==null?"[]":Model)" />
+
+<script>
+
+    var images = JSON.parse('@(Model==null?"[]":Html.Raw(Model))');
+
+    listimages(images);
+
+    function removeimage(e) {
+        images.splice(e, 1);
+        listimages(images);
+    };
+
+    function listimages() {
+
+        $('#@Html.NameForModel()').val(JSON.stringify(images))
+
+            document.getElementById("image-list-@Html.NameForModel()").innerHTML = ""
+            for (i = 0; i < images.length; i++) {
+                document.getElementById("image-list-@Html.NameForModel()").innerHTML += "<div style='padding:2px;float:left;text-align:center'><div style='width:100px;height:100px;line-height:100px;'><a href='" + images[i].url + "' target='_blank'><img style='max-width: 100%; max-height: 100%;' src='" + images[i].url + "' /></a></div><div style=''><a href='javascript:removeimage("+i+");'>删除</a></div></div>";
+            }
+    };
+
+    $('#selectimages-@Html.NameForModel()').click(function () {
+        return $('#imagesInput-@Html.NameForModel()').click();
+    });
+
+    $("#imagesInput-@Html.NameForModel()").change(function (e) {
+        var data = new FormData();
+
+        for (var i = 0; i < $(this)[0].files.length; i++) {
+            data.append('file[]', $(this)[0].files[i]);
+        }
+
+        data.append('__RequestVerificationToken', $('input[name="__RequestVerificationToken"]').val())
+
+        $.ajax({
+            url: '/uploadfile',
+            type: 'POST',
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                images = images.concat(data)
+                listimages(images);
+            },
+            error: function (data) {
+            }
+        });
+        $("#imagesInput-@Html.NameForModel()").val('')
+    });
+</script>

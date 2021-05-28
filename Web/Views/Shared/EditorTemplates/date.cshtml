@@ -1,0 +1,9 @@
+﻿@Html.TextBoxFor(a => a, "{0:yyyy/MM/dd}", new { @class = " form-control ", placeholder = HtmlLocalizer[ViewData.ModelMetadata.Description ?? ""].Value })
+
+<span class="fa fa-calendar-check-o form-control-feedback" style="margin: 10px"></span>
+
+<script>
+    $(function () {
+        $('#@Html.NameForModel()').flatpickr({ "locale": "zh" });
+    });
+</script>

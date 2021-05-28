@@ -1,0 +1,8 @@
+﻿@model DateTime?
+<span style="white-space: nowrap;">
+    @if (Model.HasValue)
+    {
+    @Model.Value.ToShortDateString()
+    }
+
+</span>

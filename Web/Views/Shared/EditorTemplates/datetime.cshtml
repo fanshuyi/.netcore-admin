@@ -1,0 +1,7 @@
+@Html.TextBoxFor(a => a, "{0:yyyy-MM-dd HH:mm }", new { @class = "form-control flatpickr-input", placeholder = HtmlLocalizer[ViewData.ModelMetadata.Description ?? ""].Value })
+
+<script>
+    $(function () {
+        $("#@Html.NameForModel()").flatpickr({ enableTime: true, "locale": "zh", allowInput: true, time_24hr:true });
+    });
+</script>

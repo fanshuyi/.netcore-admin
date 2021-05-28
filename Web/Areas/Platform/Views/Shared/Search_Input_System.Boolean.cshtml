@@ -1,0 +1,8 @@
+﻿<select name="@(ViewBag.Name)" id="@(ViewBag.Name)" class="form-control">
+    <option></option>
+    <option value="true">是</option>
+    <option value="false">否</option>
+</select>
+<script>
+    $("#@(ViewBag.Name) option[value='@Context.Request.Query[ViewBag.Name]']").attr("selected","selected");
+</script>

@@ -1,0 +1,93 @@
+{
+  "_from": "@ckeditor/ckeditor5-upload@^18.0.0",
+  "_id": "@ckeditor/ckeditor5-upload@18.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-o16Ru3QaANoM8Ld5/ueT9sbuUdSo72BJRgbkT7p+IlWhuuK7aQ2EeGhtF1QkCYcvSKP3WNvrat6eZleaxK98+A==",
+  "_location": "/@ckeditor/ckeditor5-upload",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@ckeditor/ckeditor5-upload@^18.0.0",
+    "name": "@ckeditor/ckeditor5-upload",
+    "escapedName": "@ckeditor%2fckeditor5-upload",
+    "scope": "@ckeditor",
+    "rawSpec": "^18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^18.0.0"
+  },
+  "_requiredBy": [
+    "/@ckeditor/ckeditor5-image"
+  ],
+  "_resolved": "https://registry.npmjs.org/@ckeditor/ckeditor5-upload/-/ckeditor5-upload-18.0.0.tgz",
+  "_shasum": "6b2d454e1dfeadc290416ed4ae424d186424b5fa",
+  "_spec": "@ckeditor/ckeditor5-upload@^18.0.0",
+  "_where": "C:\\Projects\\融众\\Platform\\Web\\node_modules\\@ckeditor\\ckeditor5-image",
+  "author": {
+    "name": "CKSource",
+    "url": "http://cksource.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/ckeditor/ckeditor5/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@ckeditor/ckeditor5-core": "^18.0.0",
+    "@ckeditor/ckeditor5-ui": "^18.0.0",
+    "@ckeditor/ckeditor5-utils": "^18.0.0"
+  },
+  "deprecated": false,
+  "description": "Upload Feature for CKEditor 5.",
+  "devDependencies": {
+    "eslint": "^5.5.0",
+    "eslint-config-ckeditor5": "^2.0.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^7.0.0",
+    "stylelint": "^11.1.1",
+    "stylelint-config-ckeditor5": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.7.1"
+  },
+  "eslintIgnore": [
+    "src/lib/**",
+    "packages/**"
+  ],
+  "files": [
+    "lang",
+    "src",
+    "theme"
+  ],
+  "homepage": "https://ckeditor.com/ckeditor-5",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "keywords": [
+    "ckeditor",
+    "ckeditor5",
+    "ckeditor 5",
+    "ckeditor5-lib"
+  ],
+  "license": "GPL-2.0-or-later",
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --quiet"
+    ],
+    "**/*.css": [
+      "stylelint --quiet --allow-empty-input"
+    ]
+  },
+  "name": "@ckeditor/ckeditor5-upload",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckeditor/ckeditor5-upload.git"
+  },
+  "scripts": {
+    "lint": "eslint --quiet '**/*.js'",
+    "stylelint": "stylelint --quiet --allow-empty-input 'theme/**/*.css' 'docs/**/*.css'"
+  },
+  "version": "18.0.0"
+}

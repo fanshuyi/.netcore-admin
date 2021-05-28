@@ -1,0 +1,2324 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Web</name>
+    </assembly>
+    <members>
+        <member name="T:Web.Areas.Api.Controllers.DataDictionaryController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Api.Controllers.DataDictionaryController.#ctor(Web.Areas.Api.Models.IResInfo,IServices.ISysServices.IJsonDataService,IServices.Infrastructure.IUnitOfWork)">
+            <summary>
+            </summary>
+            <param name="iResInfo"></param>
+            <param name="jsonDataService"></param>
+            <param name="unitOfWork"></param>
+        </member>
+        <member name="M:Web.Areas.Api.Controllers.DataDictionaryController.Get(System.String,System.String,System.Nullable{System.Boolean})">
+            <summary>
+            </summary>
+            <param name="keyword">关键词</param>
+            <param name="Category">分类</param>
+            <param name="isEnable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Areas.Api.Controllers.DataDictionaryController.Post(System.String,Web.Areas.Api.Models.DataDictionary)">
+            <summary>
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Areas.Api.Controllers.DataDictionaryController.Delete(System.String)">
+            <summary>
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Areas.Api.Controllers.LoginController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Api.Controllers.LoginController.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},Web.Areas.Api.Models.IResInfo)">
+            <summary>
+            </summary>
+            <param name="userManager"></param>
+            <param name="iResInfo"></param>
+        </member>
+        <member name="M:Web.Areas.Api.Controllers.LoginController.Post(Web.Models.AccountViewModels.LoginInputModel)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="T:Web.Areas.Api.Controllers.UserInfoController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Api.Controllers.UserInfoController.#ctor(IServices.ISysServices.IUserInfo,Web.Areas.Api.Models.IResInfo)">
+            <summary>
+            </summary>
+            <param name="userInfo"></param>
+            <param name="iResInfo"></param>
+        </member>
+        <member name="T:Web.Areas.Api.Models.DataDictionary">
+            <summary>
+            数据字典模型
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Api.Models.DataDictionary.#ctor">
+            <summary>
+            数据字典模型
+            </summary>
+        </member>
+        <member name="P:Web.Areas.Api.Models.DataDictionary.Category">
+            <summary>
+            分类
+            </summary>
+        </member>
+        <member name="P:Web.Areas.Api.Models.DataDictionary.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Web.Areas.Api.Models.DataDictionary.SystemId">
+            <summary>
+            系统编号
+            </summary>
+        </member>
+        <member name="P:Web.Areas.Api.Models.DataDictionary.Enable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Web.Areas.Api.Models.DataDictionary.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Web.Areas.Api.Models.ResInfo">
+            <summary>
+            api 操作返回状态
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Api.Models.ResInfo.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Areas.Api.Models.ResInfo.Code">
+            <summary>
+            状态码 0成功 -1失败
+            </summary>
+        </member>
+        <member name="P:Web.Areas.Api.Models.ResInfo.Msg">
+            <summary>
+            返回信息
+            </summary>
+        </member>
+        <member name="P:Web.Areas.Api.Models.ResInfo.Data">
+            <summary>
+            返回数据
+            </summary>
+        </member>
+        <member name="T:Web.Areas.Api.Models.IResInfo">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Areas.Api.Models.IResInfo.Code">
+            <summary>
+            状态码 0成功 -1失败
+            </summary>
+        </member>
+        <member name="P:Web.Areas.Api.Models.IResInfo.Msg">
+            <summary>
+            返回信息
+            </summary>
+        </member>
+        <member name="P:Web.Areas.Api.Models.IResInfo.Data">
+            <summary>
+            返回数据
+            </summary>
+        </member>
+        <member name="T:Web.Areas.Api.Models.ResInfoCode">
+            <summary>
+            返回信息状态
+            </summary>
+        </member>
+        <member name="F:Web.Areas.Api.Models.ResInfoCode.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:Web.Areas.Api.Models.ResInfoCode.Fail">
+            <summary>
+            失败
+            </summary>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.CourseTypeController">
+            <summary>
+            课程分类
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CourseTypeController.#ctor(IServices.ICourseServices.ICourseTypeService,IServices.Infrastructure.IUnitOfWork)">
+            <summary>
+            </summary>
+            <param name="iCourseTypeService">
+            </param>
+            <param name="unitOfWork">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CourseTypeController.Index(System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword">
+            </param>
+            <param name="ordering">
+            </param>
+            <param name="pageIndex">
+            </param>
+            <param name="pageSize">
+            </param>
+            <param name="search">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CourseTypeController.Details(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CourseTypeController.Create">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CourseTypeController.Create(System.String)">
+            <summary>
+            导入数据
+            </summary>
+            <param name="file">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CourseTypeController.Edit(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CourseTypeController.Edit(System.String,Models.CourseModels.CourseType)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <param name="collection">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CourseTypeController.DeleteAsync(System.String[])">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.CoursesController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CoursesController.Index">
+            <summary>
+            课程首页
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.CoursesControllers.PublishedCoursesController">
+            <summary>
+            发布的课程
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CoursesControllers.PublishedCoursesController.Index">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CoursesControllers.PublishedCoursesController.Create">
+            <summary>
+            发布课程
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.CoursesControllers.PurchasedCoursesController">
+            <summary>
+            购买的课程
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CoursesControllers.PurchasedCoursesController.Index">
+            <summary>
+            我已经购买的课程
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.DesktopController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DesktopController.#ctor(Microsoft.Extensions.Logging.ILogger{Web.Areas.Platform.Controllers.DesktopController},IServices.ISysServices.IUserInfo,Microsoft.Extensions.Configuration.IConfiguration,IServices.Infrastructure.IDapperRepository,IServices.ISysServices.ISysUserLogService,IServices.ISysServices.ISysMessageCenterService,Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},Microsoft.AspNetCore.SignalR.IHubContext{Web.SignalRHubs.MessengerHub},EasyCaching.Core.IEasyCachingProviderFactory)">
+            <summary>
+            </summary>
+            <param name="logger">
+            </param>
+            <param name="iUserInfo">
+            </param>
+            <param name="configuration">
+            </param>
+            <param name="iDapperRepository">
+            </param>
+            <param name="IUserFundsFlowService">
+            </param>
+            <param name="iSysUserLogService">
+            </param>
+            <param name="iSysMessageCenterService">
+            </param>
+            <param name="userManager">
+            </param>
+            <param name="hub">
+            </param>
+            <param name="iEnterpriseService">
+            </param>
+            <param name="iFreelanceService">
+            </param>
+            <param name="iEasyCachingProviderFactory">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DesktopController.IndexAsync">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.HomeController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.HomeController.#ctor(IServices.ISysServices.ISysControllerService,IServices.ISysServices.IUserInfo,IServices.ISysServices.ISysHelpService,Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},IServices.Infrastructure.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{Web.Areas.Platform.Controllers.HomeController},IServices.ISysServices.ISysMessageCenterService,IServices.ISysServices.ISysDepartmentSysUserService,Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            </summary>
+            <param name="sysControllerService">
+            </param>
+            <param name="iUserInfo">
+            </param>
+            <param name="iSysHelpService">
+            </param>
+            <param name="iSysUserService">
+            </param>
+            <param name="iUnitOfWork">
+            </param>
+            <param name="logger">
+            </param>
+            <param name="iSysMessageCenterService">
+            </param>
+            <param name="iSysDepartmentSysUserService">
+            </param>
+            <param name="signInManager">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.HomeController.IndexAsync(System.String)">
+            <summary>
+            </summary>
+            <param name="DepartmentId">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.MessageCenterController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.MessageCenterController.#ctor(IServices.ISysServices.ISysMessageCenterService,IServices.ISysServices.IUserInfo,IServices.Infrastructure.IUnitOfWork,IServices.ISysServices.ISysMessageReceivedService,Microsoft.AspNetCore.SignalR.IHubContext{Web.SignalRHubs.MessengerHub})">
+            <summary>
+            </summary>
+            <param name="iSysMessageService">
+            </param>
+            <param name="iUserInfo">
+            </param>
+            <param name="iUnitOfWork">
+            </param>
+            <param name="iSysMessageReceivedService">
+            </param>
+            <param name="hub">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.MessageCenterController.Index(System.String,System.Int32)">
+            <summary>
+            我收到的消息列表
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.MessageCenterController.DetailsAsync(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.MessageCenterController.DeleteAsync(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.HolidayController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.HolidayController.#ctor(IServices.ISysServices.IHolidayService,IServices.Infrastructure.IUnitOfWork,IServices.ISysServices.IJsonDataService)">
+            <summary>
+            </summary>
+            <param name="iHolidayService">
+            </param>
+            <param name="unitOfWork">
+            </param>
+            <param name="jsonDataService">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.HolidayController.Index(System.String,System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword">
+            </param>
+            <param name="ordering">
+            </param>
+            <param name="pageIndex">
+            </param>
+            <param name="search">
+            </param>
+            <param name="toExcelFile">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.HolidayController.Details(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.HolidayController.Create">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.HolidayController.Edit(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.HolidayController.EditAsync(System.String,Models.SysModels.Holiday)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <param name="collection">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.HolidayController.DeleteAsync(System.String[])">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.JsonDataController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.JsonDataController.#ctor(IServices.ISysServices.IJsonDataService,IServices.Infrastructure.IUnitOfWork)">
+            <summary>
+            </summary>
+            <param name="iJsonDataService"></param>
+            <param name="unitOfWork"></param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.JsonDataController.Index(System.String,System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword"></param>
+            <param name="ordering"></param>
+            <param name="pageIndex"></param>
+            <param name="search"></param>
+            <param name="toExcelFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.JsonDataController.DetailsAsync(System.String)">
+            <summary>
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.JsonDataController.Create">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.JsonDataController.Edit(System.String)">
+            <summary>
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.JsonDataController.Edit(System.String,Models.SysModels.JsonData)">
+            <summary>
+            </summary>
+            <param name="id"></param>
+            <param name="collection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.JsonDataController.DeleteAsync(System.String[])">
+            <summary>
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.SysControllerController">
+            <summary>
+            系统模块
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysControllerController.#ctor(IServices.ISysServices.ISysControllerService,IServices.Infrastructure.IUnitOfWork)">
+            <summary>
+            </summary>
+            <param name="iSysControllerService">
+            </param>
+            <param name="unitOfWork">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysControllerController.Index(System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword">
+            </param>
+            <param name="ordering">
+            </param>
+            <param name="pageIndex">
+            </param>
+            <param name="pageSize">
+            </param>
+            <param name="search">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysControllerController.Details(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysControllerController.Create">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysControllerController.Create(System.String)">
+            <summary>
+            导入数据
+            </summary>
+            <param name="file">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysControllerController.Edit(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysControllerController.Edit(System.String,Models.SysModels.SysController)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <param name="collection">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysControllerController.DeleteAsync(System.String[])">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.SysDepartmentController">
+            <summary>
+            部门管理
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysDepartmentController.#ctor(IServices.ISysServices.ISysDepartmentService,IServices.Infrastructure.IUnitOfWork)">
+            <summary>
+            </summary>
+            <param name="iSysDepartmentService">
+            </param>
+            <param name="unitOfWork">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysDepartmentController.Index(System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword">
+            </param>
+            <param name="ordering">
+            </param>
+            <param name="pageIndex">
+            </param>
+            <param name="pageSize">
+            </param>
+            <param name="search">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysDepartmentController.Details(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysDepartmentController.Create">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysDepartmentController.Create(System.String)">
+            <summary>
+            导入数据
+            </summary>
+            <param name="file">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysDepartmentController.Edit(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysDepartmentController.Edit(System.String,Models.SysModels.SysDepartment)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <param name="collection">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysDepartmentController.DeleteAsync(System.String[])">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.SysHelpClassController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpClassController.#ctor(IServices.ISysServices.ISysHelpClassService,IServices.Infrastructure.IUnitOfWork)">
+            <summary>
+            </summary>
+            <param name="iSysHelpClassService">
+            </param>
+            <param name="unitOfWork">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpClassController.Index(System.String,System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword">
+            </param>
+            <param name="ordering">
+            </param>
+            <param name="pageIndex">
+            </param>
+            <param name="search">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpClassController.Details(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpClassController.Create">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpClassController.Edit(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpClassController.Edit(System.String,Models.SysModels.SysHelpClass)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <param name="collection">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpClassController.DeleteAsync(System.String[])">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.SysHelpController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpController.#ctor(IServices.ISysServices.ISysHelpService,IServices.Infrastructure.IUnitOfWork,IServices.ISysServices.ISysHelpClassService)">
+            <summary>
+            </summary>
+            <param name="iSysHelpService">
+            </param>
+            <param name="unitOfWork">
+            </param>
+            <param name="iSysHelpClassService">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpController.Index(System.String,System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword">
+            </param>
+            <param name="ordering">
+            </param>
+            <param name="pageIndex">
+            </param>
+            <param name="search">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpController.Details(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpController.Create">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpController.Edit(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpController.Edit(System.String,Models.SysModels.SysHelp)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <param name="collection">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysHelpController.Delete(System.String[])">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.SysLogController">
+            <inheritdoc />
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysLogController.#ctor(IServices.ISysServices.ISysLogService,IServices.Infrastructure.IUnitOfWork)">
+            <summary>
+            </summary>
+            <param name="sysLogService">
+            </param>
+            <param name="unitOfWork">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysLogController.Index(System.String,System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword">
+            </param>
+            <param name="ordering">
+            </param>
+            <param name="pageIndex">
+            </param>
+            <param name="search">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysLogController.Details(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.SysRoleController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysRoleController.#ctor(IServices.ISysServices.ISysRoleService,IServices.Infrastructure.IUnitOfWork,IServices.ISysServices.ISysControllerService,IServices.ISysServices.ISysRoleSysControllerSysActionService,IServices.ISysServices.IUserInfo,Microsoft.Extensions.Logging.ILogger{Web.Areas.Platform.Controllers.SysRoleController},Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole})">
+            <summary>
+            </summary>
+            <param name="iSysRoleService">
+            </param>
+            <param name="unitOfWork">
+            </param>
+            <param name="sysControllerService">
+            </param>
+            <param name="sysRoleSysControllerSysActionService">
+            </param>
+            <param name="iUserInfo">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysRoleController.IndexAsync(System.String,System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword">
+            </param>
+            <param name="ordering">
+            </param>
+            <param name="pageIndex">
+            </param>
+            <param name="search">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysRoleController.DetailsAsync(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysRoleController.Create">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysRoleController.Edit(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysRoleController.EditAsync(System.String,Microsoft.AspNetCore.Identity.IdentityRole,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <param name="collection">
+            </param>
+            <param name="sysControllerSysActionsId">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysRoleController.DeleteAsync(System.String[])">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.SysUserController">
+            <summary>
+            用户管理
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysUserController.#ctor(IServices.Infrastructure.IUnitOfWork,Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole},IServices.ISysServices.ISysDepartmentService,IServices.ISysServices.IUserInfo,Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},IServices.IEmailSender,IServices.ISysServices.ISysUserRoleService,IServices.ISysServices.ISysUserService,Microsoft.Extensions.Logging.ILogger{Web.Areas.Platform.Controllers.SysUserController},IServices.ISysServices.ISysDepartmentSysUserService)">
+            <summary>
+            </summary>
+            <param name="unitOfWork">
+            </param>
+            <param name="sysRoleService">
+            </param>
+            <param name="iDepartmentService">
+            </param>
+            <param name="iUserInfo">
+            </param>
+            <param name="iSysDepartmentSysUserService">
+            </param>
+            <param name="userManager">
+            </param>
+            <param name="iEmailSender">
+            </param>
+            <param name="iSysUserRoleService">
+            </param>
+            <param name="sysUserService">
+            </param>
+            <param name="logger">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysUserController.Index(System.String,System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            用户列表
+            </summary>
+            <param name="keyword">
+            </param>
+            <param name="ordering">
+            </param>
+            <param name="pageIndex">
+            </param>
+            <param name="search">
+            </param>
+            <param name="toExcelFile">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysUserController.DetailsAsync(System.String)">
+            <summary>
+            查看用户详细信息
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysUserController.Create">
+            <summary>
+            新建用户
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysUserController.EditAsync(System.String)">
+            <summary>
+            编辑用户
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysUserController.EditAsync(System.String,Web.Areas.Platform.Models.SysUserEditModel)">
+            <summary>
+            保存用户
+            </summary>
+            <param name="id">
+            </param>
+            <param name="collection">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysUserController.DeleteAsync(System.String[])">
+            <summary>
+            删除用户
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.SysUserLogController">
+            <inheritdoc />
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysUserLogController.#ctor(IServices.ISysServices.ISysUserLogService,IServices.Infrastructure.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{Web.Areas.Platform.Controllers.SysUserLogController})">
+            <summary>
+            </summary>
+            <param name="sysUserLogService">
+            </param>
+            <param name="unitOfWork">
+            </param>
+            <param name="logger">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysUserLogController.Index(System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword">
+            </param>
+            <param name="ordering">
+            </param>
+            <param name="pageIndex">
+            </param>
+            <param name="pageSize">
+            </param>
+            <param name="search">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysUserLogController.DetailsAsync(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.SysUserLogController.Delete">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.TobedoneController">
+            <summary>
+            待办事宜
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.TobedoneController.#ctor(IServices.Infrastructure.IUnitOfWork,IServices.ITaskServices.ITaskCenterService,Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},IServices.ISysServices.ISysMessageCenterService)">
+            <summary>
+            </summary>
+            <param name="unitOfWork"></param>
+            <param name="iTaskCenterService"></param>
+            <param name="iSysUserService"></param>
+            <param name="iSysMessageService"></param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.TobedoneController.Index(System.String,System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword"></param>
+            <param name="ordering"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="search"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.TobedoneController.Details(System.String)">
+            <summary>
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.TobedoneController.Create">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.TobedoneController.Edit(System.String)">
+            <summary>
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.TobedoneController.EditAsync(System.String,Models.TaskModels.TaskCenter)">
+            <summary>
+            </summary>
+            <param name="id"></param>
+            <param name="collection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.TobedoneController.DeleteAsync(System.String)">
+            <summary>
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.CityCodeController">
+            <summary>
+            中国行政区
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CityCodeController.#ctor(IServices.Infrastructure.IUnitOfWork,IServices.ISysServices.IJsonDataService)">
+            <summary>
+            </summary>
+            <param name="unitOfWork">
+            </param>
+            <param name="iCityCodeService">
+            </param>
+            <param name="iSysUserService">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CityCodeController.IndexAsync(System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword">
+            </param>
+            <param name="ordering">
+            </param>
+            <param name="pageIndex">
+            </param>
+            <param name="pageSize">
+            </param>
+            <param name="search">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CityCodeController.DetailsAsync(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CityCodeController.CreateAsync">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CityCodeController.EditAsync(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CityCodeController.EditAsync(System.String,Models.UserModels.CityCode)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <param name="collection">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.CityCodeController.DeleteAsync(System.String[])">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.DataDictionaryController">
+            <summary>
+            报告分类
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DataDictionaryController.#ctor(IServices.Infrastructure.IUnitOfWork,IServices.ISysServices.IJsonDataService)">
+            <summary>
+            </summary>
+            <param name="unitOfWork">
+            </param>
+            <param name="iCityCodeService">
+            </param>
+            <param name="iSysUserService">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DataDictionaryController.IndexAsync(System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword">搜索关键词
+            </param>
+            <param name="ordering">排序
+            </param>
+            <param name="pageIndex">当前页
+            </param>
+            <param name="pageSize">每页大小
+            </param>
+            <param name="search">多条件搜索
+            </param>
+            <param name="recyclebin">已删除的数据</param>
+            <param name="toExcelFile">导出到excel</param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DataDictionaryController.DetailsAsync(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DataDictionaryController.CreateAsync">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DataDictionaryController.Create(System.String)">
+            <summary>
+            导入数据
+            </summary>
+            <param name="file">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DataDictionaryController.EditAsync(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DataDictionaryController.EditAsync(System.String,Web.Areas.Api.Models.DataDictionary)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <param name="collection">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DataDictionaryController.DeleteAsync(System.String[])">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Areas.Platform.Controllers.DomainLabelController">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DomainLabelController.#ctor(IServices.IUserServices.IDomainLabelService,IServices.Infrastructure.IUnitOfWork,Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},IServices.ISysServices.ISysMessageCenterService)">
+            <summary>
+            </summary>
+            <param name="unitOfWork">
+            </param>
+            <param name="iDomainLabelService">
+            </param>
+            <param name="iSysUserService">
+            </param>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DomainLabelController.IndexAsync(System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keyword">
+            </param>
+            <param name="ordering">
+            </param>
+            <param name="pageIndex">
+            </param>
+            <param name="pageSize">
+            </param>
+            <param name="search">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DomainLabelController.DetailsAsync(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DomainLabelController.CreateAsync">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DomainLabelController.EditAsync(System.String)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DomainLabelController.EditAsync(System.String,Models.UserModels.DomainLabel)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <param name="collection">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Areas.Platform.Controllers.DomainLabelController.DeleteAsync(System.String[])">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Controllers.AccountController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Controllers.AccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser},IServices.IEmailSender,Microsoft.Extensions.Logging.ILogger{Web.Controllers.AccountController},IServices.Infrastructure.IUnitOfWork,Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole},IServices.ISysServices.ISysControllerSysActionService,IServices.ISysServices.ISysRoleSysControllerSysActionService,IServices.ISysServices.ISysHelpService,Microsoft.AspNetCore.Authentication.IAuthenticationSchemeProvider,Microsoft.Extensions.Caching.Memory.IMemoryCache,IServices.ISysServices.IJsonDataService,Microsoft.Extensions.Localization.IStringLocalizer{Web.Controllers.AccountController})">
+            <summary>
+            </summary>
+            <param name="userManager">
+            </param>
+            <param name="signInManager">
+            </param>
+            <param name="emailSender">
+            </param>
+            <param name="logger">
+            </param>
+            <param name="iUnitOfWork">
+            </param>
+            <param name="roleManager">
+            </param>
+            <param name="iSysControllerSysActionService">
+            </param>
+            <param name="iSysRoleSysControllerSysActionService">
+            </param>
+            <param name="iSysHelpService">
+            </param>
+            <param name="schemeProvider">
+            </param>
+            <param name="cache">
+            </param>
+            <param name="jsonDataService">
+            </param>
+            <param name="localizer">
+            </param>
+        </member>
+        <member name="P:Web.Controllers.AccountController.ErrorMessage">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Controllers.AccountController.PhoneNumberLogin(System.String)">
+            <summary>
+            </summary>
+            <param name="returnUrl">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.GetVerificationCode(System.String)">
+            <summary>
+            </summary>
+            <param name="PhoneNumber">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.Login(System.String)">
+            <summary>
+            </summary>
+            <param name="returnUrl">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.Login(Web.Models.AccountViewModels.LoginInputModel,System.String)">
+            <summary>
+            </summary>
+            <param name="model">
+            </param>
+            <param name="returnUrl">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.LoginWith2fa(System.Boolean,System.String)">
+            <summary>
+            </summary>
+            <param name="rememberMe">
+            </param>
+            <param name="returnUrl">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.LoginWith2fa(Web.Models.AccountViewModels.LoginWith2faViewModel,System.Boolean,System.String)">
+            <summary>
+            </summary>
+            <param name="model">
+            </param>
+            <param name="rememberMe">
+            </param>
+            <param name="returnUrl">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.LoginWithRecoveryCode(System.String)">
+            <summary>
+            </summary>
+            <param name="returnUrl">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.LoginWithRecoveryCode(Web.Models.AccountViewModels.LoginWithRecoveryCodeViewModel,System.String)">
+            <summary>
+            </summary>
+            <param name="model">
+            </param>
+            <param name="returnUrl">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.Lockout">
+            <summary>
+            锁定
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.Register(System.String)">
+            <summary>
+            用户注册
+            </summary>
+            <param name="returnUrl">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.RegisterAsync(Web.Models.AccountViewModels.RegisterViewModel,System.String)">
+            <summary>
+            </summary>
+            <param name="model">
+            </param>
+            <param name="returnUrl">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.Logout">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.ExternalLogin(System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="provider">
+            </param>
+            <param name="returnUrl">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.ExternalLoginCallback(System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="returnUrl">
+            </param>
+            <param name="remoteError">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.ResetPasswordConfirmation">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.AccessDenied">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.CheckUserAccountExists(System.String)">
+            <summary>
+            </summary>
+            <param name="UserName">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.CheckUserEmailExists(System.String)">
+            <summary>
+            </summary>
+            <param name="Email">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.CheckPhoneNumberExists(System.String)">
+            <summary>
+            </summary>
+            <param name="PhoneNumber">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.AccountController.CheckRefereeExists(System.String)">
+            <summary>
+            </summary>
+            <param name="Referee">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Controllers.DocumentController">
+            <summary>
+            平台使用教程
+            </summary>
+        </member>
+        <member name="T:Web.Controllers.HomeController">
+            <inheritdoc />
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Controllers.HomeController.IndexAsync">
+            <summary>
+            导师展示
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.HomeController.Error">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Controllers.ManageController.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser},IServices.IEmailSender,Microsoft.Extensions.Logging.ILogger{Web.Controllers.ManageController},System.Text.Encodings.Web.UrlEncoder)">
+            <summary>
+            </summary>
+            <param name="userManager">
+            </param>
+            <param name="signInManager">
+            </param>
+            <param name="emailSender">
+            </param>
+            <param name="logger">
+            </param>
+            <param name="urlEncoder">
+            </param>
+        </member>
+        <member name="T:Web.Controllers.SiteMapController">
+            <summary>
+            网站地图
+            </summary>
+        </member>
+        <member name="M:Web.Controllers.SiteMapController.Index">
+            <summary>
+            首页
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="F:Web.Helpers.AlertType.Alerts.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:Web.Helpers.AlertType.Alerts.Attention">
+            <summary>
+            警告
+            </summary>
+        </member>
+        <member name="F:Web.Helpers.AlertType.Alerts.Warning">
+            <summary>
+            错误
+            </summary>
+        </member>
+        <member name="F:Web.Helpers.AlertType.Alerts.Information">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="T:Web.Extensions.AuthorizeForApiKeyAttribute">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Extensions.AuthorizeForApiKeyAttribute.HeaderName">
+            <summary>
+            The HTTP Header Name to be used in the request. The default is
+            <code>x-api-key </code>
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.AuthorizeForApiKeyAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            </summary>
+            <param name="context">
+            </param>
+        </member>
+        <member name="T:Web.Extensions.IKeyStoreService">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.IKeyStoreService.IsValidKey(System.String)">
+            <summary>
+            </summary>
+            <param name="key">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Extensions.InMemoryKeyStoreService">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.InMemoryKeyStoreService.IsValidKey(System.String)">
+            <summary>
+            </summary>
+            <param name="key">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Extensions.DeleteSuccessResult">
+            <inheritdoc />
+            <summary>
+            扩展删除后的返回结果，提示和跳转
+            </summary>
+        </member>
+        <member name="P:Web.Extensions.DeleteSuccessResult.Index">
+            <summary>
+            跳转控制器名称
+            </summary>
+        </member>
+        <member name="P:Web.Extensions.DeleteSuccessResult.Resule">
+            <summary>
+            删除行数
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.DeleteSuccessResult.#ctor(System.Int32,System.String,Microsoft.AspNetCore.Routing.RouteValueDictionary)">
+            <summary>
+            
+            </summary>
+            <param name="result"></param>
+            <param name="index"></param>
+            <param name="routeValues"></param>
+        </member>
+        <member name="M:Web.Extensions.DeleteSuccessResult.ExecuteResult(Microsoft.AspNetCore.Mvc.ActionContext)">
+            <inheritdoc />
+            <summary>
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Web.Extensions.DeleteSuccessResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Extensions.EditSuccessResult">
+            <inheritdoc />
+            <summary>
+            扩展添加和编辑后的返回结果，提示和跳转
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.EditSuccessResult.#ctor(System.Object,Microsoft.AspNetCore.Routing.RouteValueDictionary)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="routeValues"></param>
+        </member>
+        <member name="M:Web.Extensions.EditSuccessResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Extensions.ExceptionFilter">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.ExceptionFilter.#ctor(IServices.IEmailSender,Microsoft.Extensions.Options.IOptions{Models.AdministratorContact})">
+            <summary>
+            </summary>
+            <param name="emailSender"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Web.Extensions.ExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Web.Extensions.ExceptionFilter.OnExceptionAsync(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Extensions.HtmlHelperExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.HtmlHelperExtensions.ToSystemIdSelectList``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            将数据变成 无限分类下拉框
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="model">需要实现 IUserDictionary</param>
+            <param name="id">选中值的ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Extensions.HtmlHelperExtensions.IsActive(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.String,System.String)">
+            <summary>
+            判断是否当前action
+            </summary>
+            <param name="html"></param>
+            <param name="controller"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Extensions.HtmlHelperExtensions.ThisControllerName(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper)">
+            <summary>
+            获取当前控制器中文名称
+            </summary>
+            <param name="html"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Extensions.HtmlHelperExtensions.ReplaceHtmlTag(System.String,System.Int32)">
+            <summary>
+            去除html代码
+            </summary>
+            <param name="html"></param>
+            <param name="length">截取长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Extensions.HtmlHelperExtensions.CutString(System.String,System.Int32,System.Boolean)">
+            <summary>
+            截取指定长度的字符串
+            </summary>
+            <param name="str">要截取的字符串</param>
+            <param name="len">要截取的长度</param>
+            <param name="flag">截取后是否加省略号(true加,false不加)</param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Extensions.LinqExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.LinqExtensions.Search``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            </summary>
+            <typeparam name="T">
+            </typeparam>
+            <param name="model">
+            </param>
+            <param name="keywords">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Extensions.LinqExtensions.Search``1(System.Linq.IQueryable{``0},Microsoft.AspNetCore.Http.IQueryCollection)">
+            <summary>
+            </summary>
+            <typeparam name="T">
+            </typeparam>
+            <param name="model">
+            </param>
+            <param name="item">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Extensions.LinqExtensions.ToExcelFile``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            IEnumerable To ExcelFile
+            </summary>
+            <typeparam name="T">
+            </typeparam>
+            <param name="model">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Extensions.PagerTagHelper">
+            <inheritdoc />
+            <summary>
+            分页标签
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.PagerTagHelper.#ctor(Microsoft.AspNetCore.Mvc.Routing.IUrlHelperFactory)">
+            <summary>
+            </summary>
+            <param name="urlHelperFactory">
+            </param>
+        </member>
+        <member name="P:Web.Extensions.PagerTagHelper.ViewContext">
+            <summary>
+            视图内容
+            </summary>
+        </member>
+        <member name="P:Web.Extensions.PagerTagHelper.PagerOption">
+            <summary>
+            分页参数
+            </summary>
+        </member>
+        <member name="P:Web.Extensions.PagerTagHelper.PagerAjax">
+            <summary>
+            是否使用ajax链接
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.PagerTagHelper.ProcessAsync(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext,Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)">
+            <summary>
+            </summary>
+            <param name="context">
+            </param>
+            <param name="output">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Extensions.PagerTagHelper.Process(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext,Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)">
+            <summary>
+            </summary>
+            <param name="context">
+            </param>
+            <param name="output">
+            </param>
+        </member>
+        <member name="T:Web.Extensions.IUserAuthorize">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.IUserAuthorize.Check(System.Security.Claims.ClaimsPrincipal,System.String,System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="user">
+            </param>
+            <param name="area">
+            </param>
+            <param name="controller">
+            </param>
+            <param name="action">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Extensions.UserAuthorize">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.UserAuthorize.#ctor(IServices.ISysServices.ISysRoleSysControllerSysActionService,Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            </summary>
+            <param name="iSysRoleSysControllerSysActionService">
+            </param>
+            <param name="sysUserService">
+            </param>
+        </member>
+        <member name="T:Web.Extensions.UserAuthorizeFilter">
+            <summary>
+            用户身份验证
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.UserAuthorizeFilter.#ctor(Microsoft.AspNetCore.Authorization.AuthorizationPolicy)">
+            <summary>
+            </summary>
+            <param name="policy">
+            </param>
+        </member>
+        <member name="M:Web.Extensions.UserAuthorizeFilter.#ctor(System.Collections.Generic.IEnumerable{Microsoft.AspNetCore.Authorization.IAuthorizeData})">
+            <summary>
+            </summary>
+            <param name="authorizeData">
+            </param>
+        </member>
+        <member name="M:Web.Extensions.UserAuthorizeFilter.#ctor(System.String)">
+            <summary>
+            </summary>
+            <param name="policy">
+            </param>
+        </member>
+        <member name="M:Web.Extensions.UserAuthorizeFilter.#ctor(Microsoft.AspNetCore.Authorization.IAuthorizationPolicyProvider,System.Collections.Generic.IEnumerable{Microsoft.AspNetCore.Authorization.IAuthorizeData})">
+            <summary>
+            </summary>
+            <param name="policyProvider">
+            </param>
+            <param name="authorizeData">
+            </param>
+        </member>
+        <member name="M:Web.Extensions.UserAuthorizeFilter.OnAuthorizationAsync(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext)">
+            <summary>
+            </summary>
+            <param name="context">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.Extensions.UserInfo">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.UserInfo.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            </summary>
+            <param name="userManager">
+            </param>
+            <param name="httpContextAccessor">
+            </param>
+        </member>
+        <member name="P:Web.Extensions.UserInfo.IsAuthenticated">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Web.Extensions.UserLogFilter">
+            <summary>
+            记录用户日志
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.UserLogFilter.#ctor(IServices.ISysServices.ISysControllerSysActionService,IServices.Infrastructure.IUnitOfWork,IServices.ISysServices.ISysUserLogService)">
+            <summary>
+            </summary>
+            <param name="iSysControllerSysActionService">
+            </param>
+            <param name="iUnitOfWork">
+            </param>
+            <param name="sysUserLogService">
+            </param>
+        </member>
+        <member name="M:Web.Extensions.UserLogFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <inheritdoc />
+            <summary>
+            </summary>
+            <param name="filterContext">
+            </param>
+        </member>
+        <member name="M:Web.Extensions.UserLogFilter.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <inheritdoc />
+            <summary>
+            </summary>
+            <param name="filterContext">
+            </param>
+        </member>
+        <member name="M:Web.Extensions.UserLogFilter.OnResultExecuting(Microsoft.AspNetCore.Mvc.Filters.ResultExecutingContext)">
+            <inheritdoc />
+            <summary>
+            </summary>
+            <param name="filterContext">
+            </param>
+        </member>
+        <member name="M:Web.Extensions.UserLogFilter.OnResultExecuted(Microsoft.AspNetCore.Mvc.Filters.ResultExecutedContext)">
+            <inheritdoc />
+            <summary>
+            </summary>
+            <param name="filterContext">
+            </param>
+        </member>
+        <member name="T:Web.Extensions.Worker">
+            <summary>
+            后台任务
+            </summary>
+        </member>
+        <member name="M:Web.Extensions.Worker.#ctor(Microsoft.Extensions.Logging.ILogger{Web.Extensions.Worker},Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
+            <summary>
+            </summary>
+            <param name="logger">
+            </param>
+        </member>
+        <member name="M:Web.Extensions.Worker.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="stoppingToken">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:Web.Extensions.Worker.Dispose">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Web.Models.AccountViewModels.LoginInputModel">
+            <summary>
+            用户登录模型
+            </summary>
+        </member>
+        <member name="P:Web.Models.AccountViewModels.LoginInputModel.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Web.Models.AccountViewModels.LoginInputModel.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:Web.Models.AccountViewModels.PhoneNumberLoginInputModel">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.AccountViewModels.PhoneNumberLoginInputModel.PhoneNumber">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.AccountViewModels.PhoneNumberLoginInputModel.VerificationCode">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Web.Models.AccountViewModels.RegisterViewModel">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.AccountViewModels.RegisterViewModel.Password">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.AccountViewModels.RegisterViewModel.ConfirmPassword">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.AccountViewModels.RegisterViewModel.Referee">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Web.Models.ErrorViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Web.Models.ErrorViewModel.RequestId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Web.Models.ErrorViewModel.ShowRequestId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Web.Models.ManageViewModels.IndexViewModel">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.ManageViewModels.IndexViewModel.UserName">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.ManageViewModels.IndexViewModel.Nickname">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.ManageViewModels.IndexViewModel.IsEmailConfirmed">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.ManageViewModels.IndexViewModel.Email">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.ManageViewModels.IndexViewModel.PhoneNumber">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.ManageViewModels.IndexViewModel.StatusMessage">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Web.Models.ManageViewModels.RemoveLoginViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Web.Models.ManageViewModels.RemoveLoginViewModel.LoginProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Web.Models.ManageViewModels.RemoveLoginViewModel.ProviderKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Web.Models.ManageViewModels.TwoFactorAuthenticationViewModel">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.ManageViewModels.TwoFactorAuthenticationViewModel.HasAuthenticator">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.ManageViewModels.TwoFactorAuthenticationViewModel.RecoveryCodesLeft">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Web.Models.ManageViewModels.TwoFactorAuthenticationViewModel.Is2faEnabled">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Web.Program">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Program.Main(System.String[])">
+            <summary>
+            </summary>
+            <param name="args">
+            </param>
+        </member>
+        <member name="M:Web.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            </summary>
+            <param name="args">
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.SeedData">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.SeedData.EnsureSeedDataAsync(System.IServiceProvider)">
+            <summary>
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Web.SignalRHubs.IMessengerHub">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Web.SignalRHubs.MessengerHub">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Web.SignalRHubs.MessengerHub.#ctor(IServices.ISysServices.ISysMessageCenterService)">
+            <summary>
+            
+            </summary>
+            <param name="iSysMessageCenterService"></param>
+        </member>
+        <member name="M:Web.SignalRHubs.MessengerHub.OnConnectedAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.SignalRHubs.MessengerHub.OnDisconnectedAsync(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.SignalRHubs.SysMessageService">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.SignalRHubs.SysMessageService.#ctor(Microsoft.EntityFrameworkCore.DbContext,IServices.ISysServices.IUserInfo,Microsoft.AspNetCore.SignalR.IHubContext{Web.SignalRHubs.MessengerHub},Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            </summary>
+            <param name="databaseFactory"></param>
+            <param name="userInfo"></param>
+            <param name="messengerHub"></param>
+            <param name="iSysUserService"></param>
+        </member>
+        <member name="M:Web.SignalRHubs.SysMessageService.AddAsync(Models.SysModels.SysMessageCenter)">
+            <summary>
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="T:Web.Startup">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:Web.Startup.Configuration">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Web.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+        <member name="T:Web.Views.Manage.ManageNavPages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Web.Views.Manage.ManageNavPages.ActivePageKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Web.Views.Manage.ManageNavPages.Index">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Web.Views.Manage.ManageNavPages.ChangePassword">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Web.Views.Manage.ManageNavPages.ExternalLogins">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Web.Views.Manage.ManageNavPages.TwoFactorAuthentication">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Web.Views.Manage.ManageNavPages.IndexNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            
+            </summary>
+            <param name="viewContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Views.Manage.ManageNavPages.ChangePasswordNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            
+            </summary>
+            <param name="viewContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Views.Manage.ManageNavPages.ExternalLoginsNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            
+            </summary>
+            <param name="viewContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Views.Manage.ManageNavPages.TwoFactorAuthenticationNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            
+            </summary>
+            <param name="viewContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Views.Manage.ManageNavPages.PageNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="viewContext"></param>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Views.Manage.ManageNavPages.AddActivePage(Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="viewData"></param>
+            <param name="activePage"></param>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Mvc.UrlHelperExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.UrlHelperExtensions.EmailConfirmationLink(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="urlHelper"></param>
+            <param name="userId"></param>
+            <param name="code"></param>
+            <param name="scheme"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.UrlHelperExtensions.ResetPasswordCallbackLink(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="urlHelper"></param>
+            <param name="userId"></param>
+            <param name="code"></param>
+            <param name="scheme"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.UrlHelperExtensions.LoginLink(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="urlHelper"></param>
+            <param name="userId"></param>
+            <param name="code"></param>
+            <param name="scheme"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

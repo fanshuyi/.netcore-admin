@@ -1,0 +1,21 @@
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<div>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a asp-area="User" asp-controller="Index" asp-action="Index" title="" class="btn  btn-light"><i class="fas fa-home"></i> @UserManager.GetUserName(User)</a>
+
+        <a asp-area="" asp-controller="Account" asp-action="Logout" class="btn btn-success">
+
+            <i class="fas fa-external-link-alt"></i>
+
+            @HtmlLocalizer["Logout"]
+        </a>
+    }
+    else
+    {
+        <a asp-area="" asp-controller="Account" asp-action="Register" class="btn btn-success">@HtmlLocalizer["Register"]</a>
+
+        <a asp-area="" asp-controller="Account" asp-action="Login" class="btn btn-light">@HtmlLocalizer["Login"]</a>
+    }
+</div>

@@ -1,0 +1,2 @@
+﻿@model Enum
+@Html.DropDownListFor(a => a, Html.GetEnumSelectList(Model.GetType()), new { @class = "select2" })

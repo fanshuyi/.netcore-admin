@@ -1,0 +1,16 @@
+﻿<div id="selectimg-@Html.NameForModel()">
+    <img id="selectdimg-@Html.NameForModel()" src="@(string.IsNullOrEmpty(Model)? "/img/addtou100.jpg":Model)" style="
+	max-width: 100%;
+	max-height: 200px;" onclick=" $('#ShowImage_Form-@Html.NameForModel()').modal()" />
+</div>
+
+<!--弹出模态框大图-->
+<div class="modal fade" id="ShowImage_Form-@Html.NameForModel()" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img id="selectdimg-@Html.NameForModel()" src="@(string.IsNullOrEmpty(Model)? "/img/addtou100.jpg":Model)" class='carousel-inner img-responsive img-rounded' />
+            </div>
+        </div>
+    </div>
+</div>

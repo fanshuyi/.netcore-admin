@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Models.Infrastructure.IUserDictionary>
+
+<select id="@Html.NameForModel()" name="@Html.NameForModel()" class="select2">
+
+    @foreach (var item in Model)
+    {
+        <option value="@item.Id" selected="@item.Selected">(@item.SystemId) @item.Name  </option>
+    }
+</select>

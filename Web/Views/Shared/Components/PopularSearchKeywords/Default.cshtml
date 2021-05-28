@@ -1,0 +1,12 @@
+﻿@model IQueryable<Models.UserModels.DomainLabel>
+
+@{
+    Layout = null;
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+
+}
+
+@foreach (var item in Model)
+{
+    <a class="nav-link" asp-action="Search" asp-controller="Home" asp-route-Keyword="@item.Label" asp-area="" asp-route-culture="@culture">@Html.DisplayFor(a => item.Label)</a>
+}

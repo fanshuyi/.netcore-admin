@@ -1,0 +1,72 @@
+﻿@model PhoneNumberLoginInputModel
+@{
+    ViewData["Title"] = "Login";
+}
+<script>
+    $(function () {
+        $('#getcode').click(function () {
+
+            $.post("getVerificationCode", { PhoneNumber: $('#PhoneNumber').val() }, function (res) {
+                $('#getcode').attr("disabled", true);
+                var time = 30;
+                var set = setInterval(function () {
+                    time--;
+                    $('#getcode').text("验证码已发送（" + time + ")");
+                    if (time === 0) {
+                        $('#getcode').text('重新获取验证码');
+                        $('#getcode').attr("disabled", false);
+
+                        clearInterval(set);
+                    }
+                }, 1000)
+            }
+            )
+
+        })
+    })
+</script>
+<div class="container">
+    <h2>@HtmlLocalizer[ViewBag.Title]</h2>
+    <hr />
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"></h3>
+                </div>
+                <div class="panel-body">
+
+                    <form asp-route="Login">
+
+                        <fieldset>
+                            <div class="form-group">
+                                <label asp-for="PhoneNumber"></label>
+                                <input class="form-control" asp-for="PhoneNumber" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="VerificationCode"></label>
+
+                                <div class="input-group">
+                                    <input class="form-control" asp-for="VerificationCode" autocomplete="off">
+
+                                    <button type="button" class="form-control btn-info" id="getcode">获取验证码</button>
+                                </div>
+                            </div>
+                            <div>
+
+                                <a asp-action="Login" asp-route-ReturnUrl="@ViewBag.ReturnUrl" style="float:right;">使用账号密码登录</a>
+                            </div>
+
+                            <div class="form-group">
+
+                                <button class="btn btn-primary" name="button" value="login">  @HtmlLocalizer["Login"]</button>
+                                <a asp-action="ForgotPassword" asp-route-ReturnUrl="@ViewBag.ReturnUrl"> @HtmlLocalizer["ForgotPassword"]</a>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

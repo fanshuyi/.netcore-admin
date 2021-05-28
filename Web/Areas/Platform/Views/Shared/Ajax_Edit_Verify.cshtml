@@ -1,0 +1,12 @@
+﻿@{
+    var routevalues = Context.Request.Query.ToDictionary(key => key.Key, value => value.Value.ToString());
+    routevalues["Id"] = Model;
+}
+<div>
+    <form asp-action="Delete" asp-all-route-data="routevalues" asp-antiforgery="true" method="post" data-ajax="true" data-ajax-update="#Main" data-ajax-confirm="您确定要删除该记录吗？该操作不可恢复！">
+        @Html.AntiForgeryToken()
+
+        <a asp-action="Edit" asp-all-route-data="routevalues" data-ajax="true" data-ajax-update="#Main" class="btn btn-link" style="padding: 0">@HtmlLocalizer["Edit"]</a>
+        <button type="submit" class="btn btn-link" style="padding: 0;cursor: pointer ">@HtmlLocalizer["Delete"]</button>
+    </form>
+</div>

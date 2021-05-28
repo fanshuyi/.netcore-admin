@@ -1,0 +1,13 @@
+﻿@using Web.Helpers
+@foreach (var key in AlertType.Alerts.All)
+{
+    if (TempData.ContainsKey(key))
+    {
+        <script>
+            $.notify("@HtmlLocalizer[(string)TempData[key]]", { "type": "@key" ,   placement: {
+                from: 'top', // 'top' or 'bottom'
+                align: 'center' // 'left', 'center' or 'right',
+            }});
+        </script>
+    }
+}

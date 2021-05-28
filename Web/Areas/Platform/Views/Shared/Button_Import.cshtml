@@ -1,0 +1,47 @@
+﻿<div class="btn-group">
+    @await Html.PartialAsync("Button_Create", new { })
+    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="javascript:;" onclick="$('#importExcel').click();">
+            <i class="fas fa-file-import"></i> @HtmlLocalizer["Import"]
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/Template/@ViewContext.RouteData.Values["Controller"]/Template.xlsx"> <i class="fas  fa-file-excel"></i> @HtmlLocalizer["Template"]</a>
+    </div>
+</div>
+
+<input id="importExcel" type="file" name="file" style="display: none" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+
+<script type="text/javascript">
+    $(function () {
+
+        $('#importExcel').change(function () {
+
+            var formData = new FormData();
+            formData.append("file", $(this)[0].files[0]);
+
+            $.ajax({
+                url: '@Url.Action("Create")',
+                type: 'POST',
+                data: formData,
+                // 告诉jQuery不要去处理发送的数据
+                processData: false,
+                // 告诉jQuery不要去设置Content-Type请求头
+                contentType: false,
+                cache: false,
+                beforeSend: function () {
+                    console.log("正在进行，请稍候");
+                },
+                success: function (responseStr) {
+                    $("#Main").html(responseStr);
+
+                },
+                error: function (responseStr) {
+                    console.log("error");
+                }
+            });
+        });
+    })
+</script>

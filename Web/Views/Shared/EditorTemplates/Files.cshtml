@@ -1,0 +1,56 @@
+﻿<button class="btn-success btn" type="button" id="selectFiles-@Html.NameForModel()" style="float:right">选择文件</button>
+<ol id="file-list-@Html.NameForModel()" style="margin:0"></ol>
+
+<input type="file" multiple id="FilesInput-@Html.NameForModel()" style="display: none" />
+<input type="hidden" id="@Html.NameForModel()" name="@Html.NameForModel()" value="@(Model==null?"[]":Model)" />
+<script>
+
+    var files = JSON.parse('@(Model==null?"[]":Html.Raw(Model))');
+
+    listFiles(files);
+
+    function removeFile(e) {
+        files.splice(e, 1);
+        listFiles(files);
+    };
+
+    function listFiles() {
+
+        $('#@Html.NameForModel()').val(JSON.stringify(files))
+
+            document.getElementById("file-list-@Html.NameForModel()").innerHTML = ""
+            for (i = 0; i < files.length; i++) {
+                document.getElementById("file-list-@Html.NameForModel()").innerHTML += "<li><a href='" + files[i].url + "' target='_blank'>" + files[i].fileName + "</a> (" + files[i].length + ")  <a href='javascript:removeFile("+i+");'>删除</a></li>";
+            }
+    };
+
+    $('#selectFiles-@Html.NameForModel()').click(function () {
+        return $('#FilesInput-@Html.NameForModel()').click();
+    });
+
+    $("#FilesInput-@Html.NameForModel()").change(function (e) {
+        var data = new FormData();
+
+        for (var i = 0; i < $(this)[0].files.length; i++) {
+            data.append('file[]', $(this)[0].files[i]);
+        }
+
+        data.append('__RequestVerificationToken', $('input[name="__RequestVerificationToken"]').val())
+
+        $.ajax({
+            url: '/uploadfile',
+            type: 'POST',
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                files = files.concat(data)
+                listFiles(files);
+            },
+            error: function (data) {
+            }
+        });
+        $("#FilesInput-@Html.NameForModel()").val('')
+    });
+</script>

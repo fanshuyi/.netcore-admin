@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="A non-empty request body is required." xml:space="preserve">
+    <value>非空请求体是必需的。</value>
+    <comment>ModelBinding: ModelBinding_MissingRequestBodyRequiredMember</comment>
+  </data>
+  <data name="A user with this login already exists." xml:space="preserve">
+    <value>用该用户名已经存在。</value>
+    <comment>Identity: LoginAlreadyAssociated</comment>
+  </data>
+  <data name="A value for the '{0}' parameter or property was not provided." xml:space="preserve">
+    <value>未提供一种用于“{0}”参数或属性值。</value>
+    <comment>ModelBinding: ModelBinding_MissingBindRequiredMember</comment>
+  </data>
+  <data name="A value is required." xml:space="preserve">
+    <value>需要一个数值。</value>
+    <comment>ModelBinding: KeyValuePair_BothKeyAndValueMustBePresent</comment>
+  </data>
+  <data name="An unknown failure has occurred." xml:space="preserve">
+    <value>发生未知故障。</value>
+    <comment>Identity: DefaultError</comment>
+  </data>
+  <data name="Both ErrorMessageResourceType and ErrorMessageResourceName need to be set on this attribute." xml:space="preserve">
+    <value>无论ErrorMessageResourceType和ErrorMessageResourceName需要在此属性设置。</value>
+    <comment>DataAnnotations: ValidationAttribute_NeedBothResourceTypeAndResourceName</comment>
+  </data>
+  <data name="Cannot retrieve property '{0}' because localization failed.  Type '{1}' is not public or does not contain a public static string property with the name '{2}'." xml:space="preserve">
+    <value>无法检索属性“{0}”，因为本地化失败。类型“{1}”不公开或不包含名称的公共静态字符串属性“{2}”。</value>
+    <comment>DataAnnotations: LocalizableString_LocalizationFailed</comment>
+  </data>
+  <data name="Confirm Password" xml:space="preserve">
+    <value>确认密码</value>
+    <comment>DataAnnotations: Custom value</comment>
+  </data>
+  <data name="Could not convert the value of type '{0}' to '{1}' as expected by method {2}.{3}." xml:space="preserve">
+    <value>无法转换类型的值 '{0}' 到 '{1}' 如预期通过方法{2}。{3}。</value>
+    <comment>DataAnnotations: CustomValidationAttribute_Type_Conversion_Failed</comment>
+  </data>
+  <data name="Could not find a property named {0}." xml:space="preserve">
+    <value>找不到名为{0}属性。</value>
+    <comment>DataAnnotations: CompareAttribute_UnknownProperty</comment>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>日期</value>
+    <comment>DataAnnotations: Custom value</comment>
+  </data>
+  <data name="Either ErrorMessageString or ErrorMessageResourceName must be set, but not both." xml:space="preserve">
+    <value>无论是ErrorMessageString或ErrorMessageResourceName必须设置，但不能同时使用。</value>
+    <comment>DataAnnotations: ValidationAttribute_Cannot_Set_ErrorMessage_And_Resource</comment>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>电子邮件</value>
+    <comment>DataAnnotations: Custom value</comment>
+  </data>
+  <data name="Email '{0}' is already taken." xml:space="preserve">
+    <value>电子邮件“{0}”已被使用。</value>
+    <comment>Identity: DuplicateEmail</comment>
+  </data>
+  <data name="Email '{0}' is invalid." xml:space="preserve">
+    <value>电子邮件 '{0}' 是无效的。</value>
+    <comment>Identity: InvalidEmail</comment>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
+    <comment>DataAnnotations: Custom value</comment>
+  </data>
+  <data name="Incorrect password." xml:space="preserve">
+    <value>密码错误。</value>
+    <comment>Identity: PasswordMismatch</comment>
+  </data>
+  <data name="Invalid token." xml:space="preserve">
+    <value>令牌无效。</value>
+    <comment>Identity: InvalidToken</comment>
+  </data>
+  <data name="IsValid(object value) has not been implemented by this class.  The preferred entry point is GetValidationResult() and classes should override IsValid(object value, ValidationContext context)." xml:space="preserve">
+    <value>的IsValid（对象值）没有被这个类实现。优选的入口点是GetValidationResult（）和类应重写的IsValid（对象的值，ValidationContext上下文）。</value>
+    <comment>DataAnnotations: ValidationAttribute_IsValid_NotImplemented</comment>
+  </data>
+  <data name="Lockout is not enabled for this user." xml:space="preserve">
+    <value>锁定不为该用户启用。</value>
+    <comment>Identity: UserLockoutNotEnabled</comment>
+  </data>
+  <data name="MaxLengthAttribute must have a Length value that is greater than zero. Use MaxLength() without parameters to indicate that the string or array can have the maximum allowable length." xml:space="preserve">
+    <value>MaxLengthAttribute必须有一个长度值，该值大于零。使用的MaxLength（）不带参数，以指示该串或阵列可以具有的最大允许长度。</value>
+    <comment>DataAnnotations: MaxLengthAttribute_InvalidMaxLength</comment>
+  </data>
+  <data name="MetadataClassType cannot be null." xml:space="preserve">
+    <value>MetadataClassType不能为空。</value>
+    <comment>DataAnnotations: MetadataTypeAttribute_TypeCannotBeNull</comment>
+  </data>
+  <data name="MinLengthAttribute must have a Length value that is zero or greater." xml:space="preserve">
+    <value>MinLengthAttribute必须有一个长度值，该值大于或等于零。</value>
+    <comment>DataAnnotations: MinLengthAttribute_InvalidMinLength</comment>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名称</value>
+    <comment>DataAnnotations: Custom value</comment>
+  </data>
+  <data name="Optimistic concurrency failure, object has been modified." xml:space="preserve">
+    <value>乐观并发失败，对象已被修改。</value>
+    <comment>Identity : ConcurrencyFailure</comment>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密码</value>
+    <comment>DataAnnotations: Custom value</comment>
+  </data>
+  <data name="Passwords must be at least {0} characters." xml:space="preserve">
+    <value>密码必须至少为{0}字符。</value>
+    <comment>Identity: PasswordTooShort</comment>
+  </data>
+  <data name="Passwords must have at least one digit ('0'-'9')." xml:space="preserve">
+    <value>密码必须具有至少一个数字（“0”  - “9”）。</value>
+    <comment>Identity: PasswordRequiresDigit</comment>
+  </data>
+  <data name="Passwords must have at least one lowercase ('a'-'z')." xml:space="preserve">
+    <value>密码必须至少有一个小写字母（“A”  - “Z”）。</value>
+    <comment>Identity: PasswordRequiresLower</comment>
+  </data>
+  <data name="Passwords must have at least one non alphanumeric character." xml:space="preserve">
+    <value>密码必须至少有一个非字母数字字符。</value>
+    <comment>Identity: PasswordRequiresNonAlphanumeric</comment>
+  </data>
+  <data name="Passwords must have at least one uppercase ('A'-'Z')." xml:space="preserve">
+    <value>密码必须至少有一个大写（“A”  - “Z”）。</value>
+    <comment>Identity: PasswordRequiresUpper</comment>
+  </data>
+  <data name="Passwords must use at least {0} different characters." xml:space="preserve">
+    <value>密码必须使用至少{0}不同的字符。</value>
+    <comment>Identity: PasswordRequiresUniqueChars</comment>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>价钱</value>
+    <comment>DataAnnotations: Custom value</comment>
+  </data>
+  <data name="Recovery code redemption failed." xml:space="preserve">
+    <value>恢复代码赎回失败。</value>
+    <comment>Identity: RecoveryCodeRedemptionFailed</comment>
+  </data>
+  <data name="Role name '{0}' is already taken." xml:space="preserve">
+    <value>角色名称“{0}”已被使用。</value>
+    <comment>Identity: DuplicateRoleName</comment>
+  </data>
+  <data name="Role name '{0}' is invalid." xml:space="preserve">
+    <value>角色名称“{0}”是无效的。</value>
+    <comment>Identity: InvalidRoleName</comment>
+  </data>
+  <data name="The argument '{0}' cannot be null, empty or contain only whitespace." xml:space="preserve">
+    <value>参数“{0}”不能为空，空的或只包含空白。</value>
+    <comment>DataAnnotations: ArgumentIsNullOrWhitespace</comment>
+  </data>
+  <data name="The associated metadata type for type '{0}' contains the following unknown properties or fields: {1}. Please make sure that the names of these members match the names of the properties on the main type." xml:space="preserve">
+    <value>类型相关联的元数据类型“{0}”包含以下未知属性或字段：{1}。请确保这些成员的名字上的主要类型匹配属性的名称。</value>
+    <comment>DataAnnotations: AssociatedMetadataTypeTypeDescriptor_MetadataTypeContainsUnknownProperties</comment>
+  </data>
+  <data name="The custom DataType string cannot be null or empty." xml:space="preserve">
+    <value>自定义数据类型字符串不能为空。</value>
+    <comment>DataAnnotations: DataTypeAttribute_EmptyDataTypeString</comment>
+  </data>
+  <data name="The custom validation type '{0}' must be public." xml:space="preserve">
+    <value>自定义验证类型“{0}”必须是公共的。</value>
+    <comment>DataAnnotations: CustomValidationAttribute_Type_Must_Be_Public</comment>
+  </data>
+  <data name="The CustomValidationAttribute method '{0}' does not exist in type '{1}' or is not public and static." xml:space="preserve">
+    <value>该方法CustomValidationAttribute“{0}”中不存在类型“{1}”或不是公共和静态的。</value>
+    <comment>DataAnnotations: CustomValidationAttribute_Method_Not_Found</comment>
+  </data>
+  <data name="The CustomValidationAttribute method '{0}' in type '{1}' must match the expected signature: public static ValidationResult {0}(object value, ValidationContext context).  The value can be strongly typed.  The ValidationContext parameter is optional." xml:space="preserve">
+    <value>公共静态的ValidationResult {0}（对象的值，ValidationContext上下文）：该方法CustomValidationAttribute '{0}' 在类型 '{1}' 必须预期的签名相匹配。该值可以是强类型。该ValidationContext参数是可选。</value>
+    <comment>DataAnnotations: CustomValidationAttribute_Method_Signature</comment>
+  </data>
+  <data name="The CustomValidationAttribute method '{0}' in type '{1}' must return System.ComponentModel.DataAnnotations.ValidationResult.  Use System.ComponentModel.DataAnnotations.ValidationResult.Success to represent success." xml:space="preserve">
+    <value>该方法CustomValidationAttribute '{0}' 在类型 '{1}' 必须返回System.ComponentModel.DataAnnotations.ValidationResult。使用System.ComponentModel.DataAnnotations.ValidationResult.Success代表成功。</value>
+    <comment>DataAnnotations: CustomValidationAttribute_Method_Must_Return_ValidationResult</comment>
+  </data>
+  <data name="The CustomValidationAttribute.Method was not specified." xml:space="preserve">
+    <value>未指定CustomValidationAttribute.Method。</value>
+    <comment>DataAnnotations: CustomValidationAttribute_Method_Required</comment>
+  </data>
+  <data name="The CustomValidationAttribute.ValidatorType was not specified." xml:space="preserve">
+    <value>未指定CustomValidationAttribute.ValidatorType。</value>
+    <comment>DataAnnotations: CustomValidationAttribute_ValidatorType_Required</comment>
+  </data>
+  <data name="The field must be a number." xml:space="preserve">
+    <value>该字段必须是数字。</value>
+    <comment>ModelBinding: HtmlGeneration_NonPropertyValueMustBeNumber</comment>
+  </data>
+  <data name="The field of type {0} must be a string, array or ICollection type." xml:space="preserve">
+    <value>类型的字段{0}必须是字符串，阵列或ICollection的类型。</value>
+    <comment>DataAnnotations: LengthAttribute_InvalidValueType</comment>
+  </data>
+  <data name="The field {0} is invalid." xml:space="preserve">
+    <value>字段{0}是无效的。</value>
+    <comment>DataAnnotations: ValidationAttribute_ValidationError</comment>
+  </data>
+  <data name="The field {0} must be a number." xml:space="preserve">
+    <value>字段{0}必须是一个数字。</value>
+    <comment>ModelBinding: HtmlGeneration_ValueMustBeNumber</comment>
+  </data>
+  <data name="The field {0} must be a string or array type with a maximum length of '{1}'." xml:space="preserve">
+    <value>字段{0}必须是字符串或阵列型用的最大长度“{1}”。</value>
+    <comment>DataAnnotations: MaxLengthAttribute_ValidationError</comment>
+  </data>
+  <data name="The field {0} must be a string or array type with a minimum length of '{1}'." xml:space="preserve">
+    <value>字段{0}必须是字符串或阵列型用的最小长度“{1}”。</value>
+    <comment>DataAnnotations: MinLengthAttribute_ValidationError</comment>
+  </data>
+  <data name="The field {0} must be a string with a maximum length of {1}." xml:space="preserve">
+    <value>字段{0}必须用的最大长度的字符串{1}。</value>
+    <comment>DataAnnotations: StringLengthAttribute_ValidationError</comment>
+  </data>
+  <data name="The field {0} must be a string with a minimum length of {2} and a maximum length of {1}." xml:space="preserve">
+    <value>字段{0}必须与{2}和的最大长度的最小长度的字符串{1}。</value>
+    <comment>DataAnnotations: StringLengthAttribute_ValidationErrorIncludingMinimum</comment>
+  </data>
+  <data name="The field {0} must be between {1} and {2}." xml:space="preserve">
+    <value>字段{0}必须之间{1}和{2}。</value>
+    <comment>DataAnnotations: RangeAttribute_ValidationError</comment>
+  </data>
+  <data name="The field {0} must match the regular expression '{1}'." xml:space="preserve">
+    <value>字段{0}必须与正则表达式匹配“{1}”。</value>
+    <comment>DataAnnotations: RegexAttribute_ValidationError</comment>
+  </data>
+  <data name="The instance provided must match the ObjectInstance on the ValidationContext supplied." xml:space="preserve">
+    <value>提供的实例必须在提供的ValidationContext的ObjectInstance匹配。</value>
+    <comment>DataAnnotations: Validator_InstanceMustMatchValidationContextInstance</comment>
+  </data>
+  <data name="The key parameter at position {0} is null. Every key control parameter must be a string." xml:space="preserve">
+    <value>在位置的关键参数{0}为空。每一个关键控制参数必须是一个字符串。</value>
+    <comment>DataAnnotations: UIHintImplementation_ControlParameterKeyIsNull</comment>
+  </data>
+  <data name="The key parameter at position {0} with value '{1}' is not a string. Every key control parameter must be a string." xml:space="preserve">
+    <value>在位置的{0}值的键参数“{1}”不是一个串。每一个关键控制参数必须是一个字符串。</value>
+    <comment>DataAnnotations: UIHintImplementation_ControlParameterKeyIsNotAString</comment>
+  </data>
+  <data name="The key parameter at position {0} with value '{1}' occurs more than once." xml:space="preserve">
+    <value>在位置的{0}值的键参数“{1}”发生不止一次。</value>
+    <comment>DataAnnotations: UIHintImplementation_ControlParameterKeyOccursMoreThanOnce</comment>
+  </data>
+  <data name="The maximum length must be a nonnegative integer." xml:space="preserve">
+    <value>的最大长度必须是一个非负整数。</value>
+    <comment>DataAnnotations: StringLengthAttribute_InvalidMaxLength</comment>
+  </data>
+  <data name="The maximum value '{0}' must be greater than or equal to the minimum value '{1}'." xml:space="preserve">
+    <value>最大值“{0}”必须大于或等于最小值“{1}”。</value>
+    <comment>DataAnnotations: RangeAttribute_MinGreaterThanMax</comment>
+  </data>
+  <data name="The minimum and maximum values must be set." xml:space="preserve">
+    <value>最小和最大值必须设置。</value>
+    <comment>DataAnnotations: RangeAttribute_Must_Set_Min_And_Max</comment>
+  </data>
+  <data name="The number of control parameters must be even." xml:space="preserve">
+    <value>控制参数的数量必须是偶数。</value>
+    <comment>DataAnnotations: UIHintImplementation_NeedEvenNumberOfControlParameters</comment>
+  </data>
+  <data name="The OperandType must be set when strings are used for minimum and maximum values." xml:space="preserve">
+    <value>当字符串用于最小值和最大值的OperandType必须设置。</value>
+    <comment>DataAnnotations: RangeAttribute_Must_Set_Operand_Type</comment>
+  </data>
+  <data name="The pattern must be set to a valid regular expression." xml:space="preserve">
+    <value>该模式必须设置为一个有效的正则表达式。</value>
+    <comment>DataAnnotations: RegularExpressionAttribute_Empty_Pattern</comment>
+  </data>
+  <data name="The property '{0}' on resource type '{1}' is not a string type." xml:space="preserve">
+    <value>上的资源类型的属性“{0}”“{1}”不是一个串类型。</value>
+    <comment>DataAnnotations:ValidationAttribute_ResourcePropertyNotStringType</comment>
+  </data>
+  <data name="The property {0}.{1} could not be found." xml:space="preserve">
+    <value>属性{0}。{1}无法找到。</value>
+    <comment>DataAnnotations: Common_PropertyNotFound</comment>
+  </data>
+  <data name="The resource type '{0}' does not have an accessible static property named '{1}'." xml:space="preserve">
+    <value>资源类型“{0}”没有名为可访问的静态属性“{1}”。</value>
+    <comment>DataAnnotations: ValidationAttribute_ResourceTypeDoesNotHaveProperty</comment>
+  </data>
+  <data name="The supplied value is invalid for {0}." xml:space="preserve">
+    <value>所提供的值是{0}的无效。</value>
+    <comment>ModelBinding: ModelState_UnknownValueIsInvalid</comment>
+  </data>
+  <data name="The supplied value is invalid." xml:space="preserve">
+    <value>所提供的值是无效的。</value>
+    <comment>ModelBinding: ModelState_NonPropertyUnknownValueIsInvalid</comment>
+  </data>
+  <data name="The type '{0}' does not contain a public property named '{1}'." xml:space="preserve">
+    <value>类型“{0}”不包含名为公共财产“{1}”。</value>
+    <comment>DataAnnotations: AttributeStore_Unknown_Property</comment>
+  </data>
+  <data name="The type '{0}' needs to represent an enumeration type." xml:space="preserve">
+    <value>类型“{0}”需要表示枚举类型。</value>
+    <comment>DataAnnotations: EnumDataTypeAttribute_TypeNeedsToBeAnEnum</comment>
+  </data>
+  <data name="The type provided for EnumDataTypeAttribute cannot be null." xml:space="preserve">
+    <value>提供EnumDataTypeAttribute类型不能为空。</value>
+    <comment>DataAnnotations: EnumDataTypeAttribute_TypeCannotBeNull</comment>
+  </data>
+  <data name="The type {0} must implement {1}." xml:space="preserve">
+    <value>类型{0}必须实现{1}。</value>
+    <comment>DataAnnotations: RangeAttribute_ArbitraryTypeNotIComparable</comment>
+  </data>
+  <data name="The value '{0}' is invalid." xml:space="preserve">
+    <value>值“{0}”无效。</value>
+    <comment>ModelBinding: HtmlGeneration_ValueIsInvalid, ModelBinding_NullValueNotValid</comment>
+  </data>
+  <data name="The value '{0}' is not valid for {1}." xml:space="preserve">
+    <value>值 '{0}' 是无效的{1}。</value>
+    <comment>ModelBinding: ModelState_AttemptedValueIsInvalid</comment>
+  </data>
+  <data name="The value '{0}' is not valid." xml:space="preserve">
+    <value>值“{0}”无效。</value>
+    <comment>ModelBinding: ModelState_NonPropertyAttemptedValueIsInvalid</comment>
+  </data>
+  <data name="The value for property '{0}' must be of type '{1}'." xml:space="preserve">
+    <value>对于属性的值“{0}”的类型必须是“{1}”。</value>
+    <comment>DataAnnotations: Validator_Property_Value_Wrong_Type</comment>
+  </data>
+  <data name="The {0} field is not a valid credit card number." xml:space="preserve">
+    <value>{0}字段是不是一个有效的信用卡号码。</value>
+    <comment>DataAnnotations: CreditCardAttribute_Invalid</comment>
+  </data>
+  <data name="The {0} field is not a valid e-mail address." xml:space="preserve">
+    <value>{0}字段是不是一个有效的E-mail地址。</value>
+    <comment>DataAnnotations: EmailAddressAttribute_Invalid</comment>
+  </data>
+  <data name="The {0} field is not a valid fully-qualified http, https, or ftp URL." xml:space="preserve">
+    <value>{0}字段是不是一个有效的完全合格的HTTP，HTTPS，FTP或URL。</value>
+    <comment>DataAnnotations: UrlAttribute_Invalid</comment>
+  </data>
+  <data name="The {0} field is not a valid phone number." xml:space="preserve">
+    <value>{0}字段是不是一个有效的电话号码。</value>
+    <comment>DataAnnotations: PhoneAttribute_Invalid</comment>
+  </data>
+  <data name="The {0} field is required." xml:space="preserve">
+    <value>请填写{0}该字段是必需的。</value>
+    <comment>DataAnnotations: RequiredAttribute_ValidationError</comment>
+  </data>
+  <data name="The {0} field only accepts files with the following extensions: {1}" xml:space="preserve">
+    <value>{0}字段仅接受文件具有以下扩展名：{1}</value>
+    <comment>DataAnnotations: FileExtensionsAttribute_Invalid</comment>
+  </data>
+  <data name="The {0} property has not been set.  Use the {1} method to get the value." xml:space="preserve">
+    <value>{0}属性尚未设置。使用{1}方法来获取值。</value>
+    <comment>DataAnnotations: DisplayAttribute_PropertyNotSet</comment>
+  </data>
+  <data name="User already has a password set." xml:space="preserve">
+    <value>用户已经设置密码。</value>
+    <comment>Identity: UserAlreadyHasPassword</comment>
+  </data>
+  <data name="User already in role '{0}'." xml:space="preserve">
+    <value>用户已经在角色“{0}”。</value>
+    <comment>Identity: UserAlreadyInRole</comment>
+  </data>
+  <data name="User is not in role '{0}'." xml:space="preserve">
+    <value>用户不在角色“{0}”。</value>
+    <comment>Identity: UserNotInRole</comment>
+  </data>
+  <data name="User name '{0}' is already taken." xml:space="preserve">
+    <value>用户名“{0}”已被使用。</value>
+    <comment>Identity: DuplicateUserName</comment>
+  </data>
+  <data name="User name '{0}' is invalid, can only contain letters or digits." xml:space="preserve">
+    <value>用户名“{0}”是无效的，只能包含字母或数字。</value>
+    <comment>Identity: InvalidUserName</comment>
+  </data>
+  <data name="{0} is not valid." xml:space="preserve">
+    <value>{0}无效。</value>
+    <comment>DataAnnotations: CustomValidationAttribute_ValidationError</comment>
+  </data>
+  <data name="'{0}' and '{1}' do not match." xml:space="preserve">
+    <value>'{0}' ”和 '{1}' 不匹配。</value>
+    <comment>DataAnnotations: CompareAttribute_MustMatch</comment>
+  </data>
+  <data name="&lt;strong&gt;The Development environment shouldn't be enabled for deployed applications.&lt;/strong&gt; It can result in displaying sensitive information from exceptions to end users. For local debugging, enable the &lt;strong&gt;Development&lt;/strong&gt; environment by setting the &lt;strong&gt;ASPNETCORE_ENVIRONMENT&lt;/strong&gt; environment variable to &lt;strong&gt;Development&lt;/strong&gt; and restarting the app" xml:space="preserve">
+    <value>&lt;STRONG&gt;开发环境不应该被用于部署的应用程序启用。&lt;/ STRONG&gt;这可能会导致从异常显示敏感信息给最终用户。对于本地调试，通过设置的&lt;strong&gt; ASPNETCORE_ENVIRONMENT &lt;/强&gt;环境变量启用的&lt;strong&gt;开发&lt;/强&gt;环境中的&lt;strong&gt;开发&lt;/ strong&gt;并重新启动应用程序</value>
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>接受</value>
+  </data>
+  <data name="An error occurred while processing your request" xml:space="preserve">
+    <value>处理您的请求时发生错误</value>
+  </data>
+  <data name="Create a new account" xml:space="preserve">
+    <value>创建一个新账户</value>
+  </data>
+  <data name="Development Mode" xml:space="preserve">
+    <value>发展模式</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="Forgot your password?" xml:space="preserve">
+    <value>忘记密码了吗？</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>你好</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>家</value>
+  </data>
+  <data name="Home Page" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="LazZiya.ExpressLocalization Sample Project" xml:space="preserve">
+    <value>LazZiya.ExpressLocalization示例项目</value>
+  </data>
+  <data name="Learn about &lt;a href='https://docs.microsoft.com/aspnet/core'&gt;building Web apps with ASP.NET Core&lt;/a&gt;" xml:space="preserve">
+    <value>了解&lt;a href='https://docs.microsoft.com/aspnet/core'&gt;建筑Web应用程序与ASP.NET核心&lt;/A&gt;</value>
+  </data>
+  <data name="Learn More" xml:space="preserve">
+    <value>学到更多</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>登出</value>
+  </data>
+  <data name="Please enter a valid number." xml:space="preserve">
+    <value>请输入一个有效的数字。</value>
+    <comment>Notice: int data types dosen't get data-val-number attribute, add it manually</comment>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>隐私</value>
+  </data>
+  <data name="Privacy Policy" xml:space="preserve">
+    <value>隐私政策</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>注册</value>
+  </data>
+  <data name="Register as a new user" xml:space="preserve">
+    <value>注册新用户</value>
+  </data>
+  <data name="Request ID" xml:space="preserve">
+    <value>请求ID</value>
+  </data>
+  <data name="Sample Form" xml:space="preserve">
+    <value>表格样本</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="Swapping to the &lt;strong&gt;Development&lt;/strong&gt; environment displays detailed information about the error that occurred" xml:space="preserve">
+    <value>交换到的&lt;strong&gt;开发&lt;/强&gt;环境显示详细的有关所发生的错误信息</value>
+  </data>
+  <data name="Use a local account to log in" xml:space="preserve">
+    <value>使用本地帐户登录</value>
+  </data>
+  <data name="Use another service to log in" xml:space="preserve">
+    <value>使用其他服务登录</value>
+  </data>
+  <data name="Use this page to detail your site's privacy policy" xml:space="preserve">
+    <value>使用此页详细说明您的网站的隐私政策</value>
+  </data>
+  <data name="Use this space to summarize your privacy and cookie use policy" xml:space="preserve">
+    <value>利用这个空间来概括隐私和cookie的使用策略</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>欢迎</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="AccountBalance" xml:space="preserve">
+    <value>账户余额（元）</value>
+  </data>
+  <data name="AccountingTime" xml:space="preserve">
+    <value>入账时间</value>
+  </data>
+  <data name="ActionDuration" xml:space="preserve">
+    <value>操作(ms)</value>
+  </data>
+  <data name="ActualEndTime" xml:space="preserve">
+    <value>实际完成时间</value>
+  </data>
+  <data name="AddSuccess" xml:space="preserve">
+    <value>添加成功！</value>
+  </data>
+  <data name="AdvancedSearch" xml:space="preserve">
+    <value>高级搜索</value>
+  </data>
+  <data name="AmountMoney" xml:space="preserve">
+    <value>收支金额（元）</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>返回</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>修改密码</value>
+  </data>
+  <data name="Class" xml:space="preserve">
+    <value>类别</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>内容</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>创建人</value>
+  </data>
+  <data name="CreatedDateTime" xml:space="preserve">
+    <value>创建日期</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="DeleteSuccess" xml:space="preserve">
+    <value>删除成功！</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>部门</value>
+  </data>
+  <data name="Department Name" xml:space="preserve">
+    <value>部门名称</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>查看</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>持续(ms)</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="EditSuccess" xml:space="preserve">
+    <value>编辑成功！</value>
+  </data>
+  <data name="EmailConfirmed" xml:space="preserve">
+    <value>邮箱确认</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>启用</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>结束日期</value>
+  </data>
+  <data name="EnterpriseName" xml:space="preserve">
+    <value>企业名称</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>导出</value>
+  </data>
+  <data name="ExternalLogins" xml:space="preserve">
+    <value>三方登录</value>
+  </data>
+  <data name="FinancialType" xml:space="preserve">
+    <value>财务类型</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>忘记密码？</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="IP" xml:space="preserve">
+    <value>IP</value>
+  </data>
+  <data name="Keyword" xml:space="preserve">
+    <value>关键词</value>
+  </data>
+  <data name="LockoutEnabled" xml:space="preserve">
+    <value>启用锁定</value>
+  </data>
+  <data name="LockoutEnd" xml:space="preserve">
+    <value>锁定结束时间</value>
+  </data>
+  <data name="Log" xml:space="preserve">
+    <value>日志</value>
+  </data>
+  <data name="MachineName" xml:space="preserve">
+    <value>机器名</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>电话号码</value>
+  </data>
+  <data name="PhoneNumberConfirmed" xml:space="preserve">
+    <value>电话号码确认</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>个人资料</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>读取</value>
+  </data>
+  <data name="RecordId" xml:space="preserve">
+    <value>编号</value>
+  </data>
+  <data name="Referee" xml:space="preserve">
+    <value>推荐人</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="Remember Login" xml:space="preserve">
+    <value>记住登录状态</value>
+  </data>
+  <data name="RequestType" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="RoleName" xml:space="preserve">
+    <value>角色名</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="ScheduleEndTime" xml:space="preserve">
+    <value>计划完成时间</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="Sort" xml:space="preserve">
+    <value>排序</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>开始日期</value>
+  </data>
+  <data name="Sussess" xml:space="preserve">
+    <value>成功</value>
+  </data>
+  <data name="SysAction" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="SysArea" xml:space="preserve">
+    <value>区域</value>
+  </data>
+  <data name="SysController" xml:space="preserve">
+    <value>控制器</value>
+  </data>
+  <data name="SysDefault" xml:space="preserve">
+    <value>系统默认</value>
+  </data>
+  <data name="SysHelpClassId" xml:space="preserve">
+    <value>类别</value>
+  </data>
+  <data name="SystemId" xml:space="preserve">
+    <value>系统编号</value>
+  </data>
+  <data name="TaskExecutor" xml:space="preserve">
+    <value>执行人</value>
+  </data>
+  <data name="TaskType" xml:space="preserve">
+    <value>任务类型</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="TwoFactorAuthentication" xml:space="preserve">
+    <value>两步验证</value>
+  </data>
+  <data name="TwoFactorEnabled" xml:space="preserve">
+    <value>启用两步验证</value>
+  </data>
+  <data name="UpdatedBy" xml:space="preserve">
+    <value>更新人</value>
+  </data>
+  <data name="UpdatedDateTime" xml:space="preserve">
+    <value>更新日期</value>
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value>网址</value>
+  </data>
+  <data name="UserCreatedBy" xml:space="preserve">
+    <value>创建人</value>
+  </data>
+  <data name="UserId" xml:space="preserve">
+    <value>用户ID</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="UserUpdatedBy" xml:space="preserve">
+    <value>更新人</value>
+  </data>
+  <data name="ViewDuration" xml:space="preserve">
+    <value>视图(ms)</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>工作</value>
+  </data>
+  <data name="Demand" xml:space="preserve">
+    <value>需求</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>订单</value>
+  </data>
+  <data name="Supply" xml:space="preserve">
+    <value>选助理</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>视频</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>修改密码</value>
+  </data>
+  <data name="New Password" xml:space="preserve">
+    <value>新密码</value>
+  </data>
+  <data name="Old Password" xml:space="preserve">
+    <value>原密码</value>
+  </data>
+  <data name="Update password" xml:space="preserve">
+    <value>更新密码</value>
+  </data>
+  <data name="Your profile has been updated" xml:space="preserve">
+    <value>您的个人资料已更新</value>
+  </data>
+  <data name="Heat" xml:space="preserve">
+    <value>热度</value>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="LabelType" xml:space="preserve">
+    <value>标签类型</value>
+  </data>
+  <data name="Please check your email to reset your password." xml:space="preserve">
+    <value>请检查您的电子邮件以重置密码。</value>
+  </data>
+  <data name="Forgot password confirmation" xml:space="preserve">
+    <value>忘记密码确认</value>
+  </data>
+  <data name="Custom type" xml:space="preserve">
+    <value>自定义类型</value>
+  </data>
+  <data name="Retrieve password" xml:space="preserve">
+    <value>找回密码</value>
+  </data>
+  <data name="Teacher" xml:space="preserve">
+    <value>导师</value>
+  </data>
+  <data name="User Center" xml:space="preserve">
+    <value>用户中心</value>
+  </data>
+  <data name="Nick Name" xml:space="preserve">
+    <value>昵称</value>
+  </data>
+  <data name="System Name" xml:space="preserve">
+    <value>云税易</value>
+  </data>
+  <data name="Hot search" xml:space="preserve">
+    <value>热搜</value>
+  </data>
+  <data name="Help Center" xml:space="preserve">
+    <value>帮助中心</value>
+  </data>
+  <data name="Desktop" xml:space="preserve">
+    <value>桌面</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>消息</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="Tutor" xml:space="preserve">
+    <value>导师</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="Verification Code" xml:space="preserve">
+    <value>验证码</value>
+  </data>
+  <data name="Invalid username or password" xml:space="preserve">
+    <value>用户名或密码无效</value>
+  </data>
+  <data name="ContractNumber" xml:space="preserve">
+    <value>合同编号</value>
+  </data>
+  <data name="ContractContent" xml:space="preserve">
+    <value>合同内容</value>
+  </data>
+  <data name="Contract Type" xml:space="preserve">
+    <value>合同类型</value>
+  </data>
+  <data name="ContractAmount" xml:space="preserve">
+    <value>合同金额</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>角色</value>
+  </data>
+  <data name="Audit" xml:space="preserve">
+    <value>审核</value>
+  </data>
+  <data name="BankAccount" xml:space="preserve">
+    <value>银行账号</value>
+  </data>
+  <data name="IDCardPhoto" xml:space="preserve">
+    <value>身份证照片</value>
+  </data>
+  <data name="IDNumber" xml:space="preserve">
+    <value>身份证号</value>
+  </data>
+  <data name="MobileNumber" xml:space="preserve">
+    <value>手机号</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>编号</value>
+  </data>
+  <data name="OpeningBank" xml:space="preserve">
+    <value>开户行</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="ContractAttachments" xml:space="preserve">
+    <value>合同附件</value>
+  </data>
+  <data name="BusinessLicense" xml:space="preserve">
+    <value>营业执照</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>城市</value>
+  </data>
+  <data name="Freelances" xml:space="preserve">
+    <value>提供服务人员</value>
+  </data>
+  <data name="Freelance" xml:space="preserve">
+    <value>提供服务人员</value>
+  </data>
+  <data name="ActualAmount" xml:space="preserve">
+    <value>实发金额</value>
+  </data>
+  <data name="AmountPayable" xml:space="preserve">
+    <value>应发金额</value>
+  </data>
+  <data name="TaxPayment" xml:space="preserve">
+    <value>代缴税金</value>
+  </data>
+  <data name="CreditCode" xml:space="preserve">
+    <value>信用代码</value>
+  </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>附件</value>
+  </data>
+  <data name="BusinessImage" xml:space="preserve">
+    <value>业务影像</value>
+  </data>
+  <data name="Solution" xml:space="preserve">
+    <value>解决方案</value>
+  </data>
+  <data name="SpecificDescription" xml:space="preserve">
+    <value>具体描述</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>联系人</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>打印</value>
+  </data>
+  <data name="Personnel" xml:space="preserve">
+    <value>人员</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>金额</value>
+  </data>
+  <data name="ServiceCharge" xml:space="preserve">
+    <value>服务费</value>
+  </data>
+  <data name="ServiceChargeId" xml:space="preserve">
+    <value>服务费</value>
+  </data>
+  <data name="ServiceChargeSum" xml:space="preserve">
+    <value>服务费合计</value>
+  </data>
+  <data name="ZipCode" xml:space="preserve">
+    <value>邮政编码</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>模板</value>
+  </data>
+  <data name="Contract" xml:space="preserve">
+    <value>合同</value>
+  </data>
+  <data name="ContractId" xml:space="preserve">
+    <value>合同编号</value>
+  </data>
+  <data name="FreelanceId" xml:space="preserve">
+    <value>人员编号</value>
+  </data>
+  <data name="Change your account settings" xml:space="preserve">
+    <value>更改帐户设置</value>
+  </data>
+  <data name="Manage your account" xml:space="preserve">
+    <value>管理您的帐户</value>
+  </data>
+  <data name="Enter your email." xml:space="preserve">
+    <value>输入您的电子邮件。</value>
+  </data>
+  <data name="resources" xml:space="preserve">
+    <value>资源</value>
+  </data>
+  <data name="Abnormal" xml:space="preserve">
+    <value>异常</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>年</value>
+  </data>
+  <data name="YearMonth" xml:space="preserve">
+    <value>年月</value>
+  </data>
+  <data name="Adopt" xml:space="preserve">
+    <value>通过</value>
+  </data>
+  <data name="SubmitAudit" xml:space="preserve">
+    <value>提交审核</value>
+  </data>
+  <data name="Certification" xml:space="preserve">
+    <value>实名认证</value>
+  </data>
+  <data name="Platform" xml:space="preserve">
+    <value>平台</value>
+  </data>
+  <data name="The IDNumber field is required." xml:space="preserve">
+    <value>请填写身份证号码</value>
+  </data>
+  <data name="Student Certification" xml:space="preserve">
+    <value>学员认证</value>
+  </data>
+  <data name="InstitutionName" xml:space="preserve">
+    <value>机构名称</value>
+  </data>
+  <data name="School Certification" xml:space="preserve">
+    <value>教育机构认证</value>
+  </data>
+  <data name="UnifiedSocialCreditCode" xml:space="preserve">
+    <value>统一社会信用代码</value>
+  </data>
+  <data name="AccountNumber" xml:space="preserve">
+    <value>账号</value>
+  </data>
+  <data name="SiteMap" xml:space="preserve">
+    <value>网站地图</value>
+  </data>
+  <data name="Hot" xml:space="preserve">
+    <value>热门</value>
+  </data>
+  <data name="ValidDate" xml:space="preserve">
+    <value>有效期限</value>
+  </data>
+  <data name="AuditStatus" xml:space="preserve">
+    <value>审核状态</value>
+  </data>
+  <data name="Recycle Bin" xml:space="preserve">
+    <value>回收站</value>
+  </data>
+</root>

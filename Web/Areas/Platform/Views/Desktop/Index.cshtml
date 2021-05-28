@@ -1,0 +1,117 @@
+﻿@using Microsoft.Extensions.Configuration
+@using Newtonsoft.Json
+@inject IConfiguration Configuration
+
+<div class="row">
+    <div class="col-12">
+        <div> <h1>桌面</h1></div>
+        <div>欢迎进入管理平台</div>
+    </div>
+</div>
+
+@if (User.IsInRole("管理员"))
+{
+
+    <div class="row quick-stats">
+        <div class="col-md-3 col-sm-6 ">
+            <div class="card pl-4 pr-4 pt-2 pb-2 mt-2">
+                <h1>@ViewBag.SysUserCount<small>人</small></h1>
+                <div>系统用户</div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card pl-4 pr-4 pt-2 pb-2 mt-2">
+                <h1>
+                    @ViewBag.DbSize
+                </h1>
+                <div>系统数据</div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="card pl-4 pr-4 pt-2 pb-2 mt-2">
+                <h1>@ViewBag.shiyong<small>次</small></h1>
+                <div>平台使用量</div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="card pl-4 pr-4 pt-2 pb-2 mt-2">
+                <h1>@ViewBag.CacheCountInMemory  @ViewBag.CacheCountRedis</h1>
+                <div>缓存</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-4">
+            <canvas id="myChart4"></canvas>
+
+            <script>
+            var r = Math.floor(Math.random() * 200) + ', ' + Math.floor(Math.random() * 200) + ', ' + Math.floor(Math.random() * 200);
+            var chart = new Chart(document.getElementById('myChart4').getContext('2d'),
+                {
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    },
+                    type: 'line',
+
+                    data: {
+                        labels: @Html.Raw(JsonConvert.SerializeObject( ViewBag.SysUserLogDayDuration.Keys)),
+
+                            datasets: [
+                                {
+                                    backgroundColor: 'rgb(' + r + ',0.4)',
+                                    borderColor: 'rgb(' + r + ',0.6)',
+                                    borderWidth: 1,
+                                   label: "平均执行时长（毫秒）",
+                                data:@Html.Raw(JsonConvert.SerializeObject(ViewBag.SysUserLogDayDuration.Values)),
+                                }
+                            ]
+                        }
+                    });
+            </script>
+        </div>
+
+        <div class="col-md-4">
+            <canvas id="myChart5"></canvas>
+
+            <script>
+            var r = Math.floor(Math.random() * 200) + ', ' + Math.floor(Math.random() * 200) + ', ' + Math.floor(Math.random() * 200);
+            var chart = new Chart(document.getElementById('myChart5').getContext('2d'),
+                {
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    },
+                    type: 'line',
+
+                    data: {
+                        labels: @Html.Raw(JsonConvert.SerializeObject( ViewBag.SysUserLogDayCount.Keys)),
+
+                            datasets: [
+                                {
+                                    backgroundColor: 'rgb(' + r + ',0.4)',
+                                    borderColor: 'rgb(' + r + ',0.6)',
+                                    borderWidth: 1,
+                                    label: "使用数量（次）",
+                                    data: @Html.Raw(JsonConvert.SerializeObject(ViewBag.SysUserLogDayCount.Values)),
+                                }
+                            ]
+                        }
+                    });
+            </script>
+        </div>
+    </div>
+
+}

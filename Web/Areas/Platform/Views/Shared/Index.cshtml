@@ -1,0 +1,246 @@
+@using System.Reflection
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Web.Extensions
+@inject Web.Extensions.IUserAuthorize userAuthorize
+@{
+    string area = (string)this.Context.GetRouteValue("area");
+
+    string controller = (string)this.Context.GetRouteValue("controller");
+
+    var edit = userAuthorize.Check(User, area, controller, "Edit");
+
+}
+
+<div class="row">
+    <div class="col-12" style="border-bottom:1px solid #e4e4e4">
+        <h3>@Html.ThisControllerName()</h3>
+    </div>
+</div>
+
+<partial name="_alerts" />
+<partial name="_validationSummary" />
+
+<div class="row py-2">
+    <div class="col-md-5">
+        @{
+            PropertyInfo[] properties = Model.GetType().GetGenericArguments()[0].GetProperties();
+        }
+
+        @if (properties.Any(a => a.Name == "Id") && userAuthorize.Check(User, area, controller, "Create"))
+        {
+
+            @if (ViewBag.Import == true)
+            {
+                @await Html.PartialAsync("Button_Import", new { })
+            }
+            else
+            {
+                @await Html.PartialAsync("Button_Create", new { })
+            }
+
+        }
+
+        @await Html.PartialAsync("Button_Export", new { })
+
+        @if (userAuthorize.Check(User, area, controller, "Delete"))
+        {
+            <a class="btn btn-danger disabled" href="javascript:;" id="deleteall"> <i class="far fa-trash-alt"></i> @HtmlLocalizer["Delete"]</a>
+        }
+
+        @if (userAuthorize.Check(User, area, controller, "Audit"))
+        {
+            <a class="btn btn-success disabled" href="javascript:;" id="auditall">
+                <i class="far fa-check-square"></i>
+
+                @if (ViewBag.SubmitAudit != null && ViewBag.SubmitAudit)
+                {
+                    @HtmlLocalizer["SubmitAudit"]
+                }
+                else
+                {
+                    @HtmlLocalizer["Audit"]
+                }
+            </a>
+        }
+
+        @*<a href="#@Url.Action( "", new {recyclebin =true})" class="btn btn-success"> <i class="fas fa-recycle"></i>  @HtmlLocalizer["Recycle Bin"]</a>*@
+
+        @Html.AntiForgeryToken()
+
+        <script>
+            $(function () {
+                $("input:checkbox").change(function () {
+                    var display = false;
+                    $("input[name='ids']:checkbox:checked").each(function () {
+                        display = true;
+                    });
+                    if (display) {
+                        $("#deleteall").removeClass("disabled");
+                        $("#auditall").removeClass("disabled");
+                    } else {
+                        $("#deleteall").addClass("disabled");
+                        $("#auditall").addClass("disabled");
+                    }
+                });
+
+                $("#auditall").click(function () {
+                    if (confirm("您确定要审核吗？")) {
+                        var ids = [];
+                        $("input[name='ids']:checkbox:checked").each(function() {
+                            ids.push($(this).val());
+                        });
+                        $.ajax({
+                            url: '@Url.Action("Audit",Context.Request.Query.ToDictionary(key => key.Key, value => value.Value.ToString()))',
+                            type: 'POST',
+                            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                            data: {
+                                __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+                                id: ids,
+                            },
+                            success: function (result) {
+                                $("#Main").html(result);
+                            }
+                        });
+                    }
+                });
+
+                 $("#deleteall").click(function () {
+                    if (confirm("您确定要删除全部选中的记录吗？")) {
+                        var ids = [];
+                        $("input[name='ids']:checkbox:checked").each(function() {
+                            ids.push($(this).val());
+                        });
+                        $.ajax({
+                            url: '@Url.Action("Delete",Context.Request.Query.ToDictionary(key => key.Key, value => value.Value.ToString()))',
+                            type: 'POST',
+                            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                            data: {
+                                __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+                                id: ids,
+                            },
+                            success: function (result) {
+                                $("#Main").html(result);
+                            }
+                        });
+                    }
+                });
+            })
+        </script>
+    </div>
+    <div class="col-md-7">
+        @await Html.PartialAsync("Search_Input", properties)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-primary">
+                    <tr>
+                        @if (properties.Any(a => a.Name == "Id"))
+                        {
+                            <th nowrap class="text-center">
+                                <input type="checkbox" id="CheckAll" class="btn" />
+
+                                <script>
+                                    $(function () {
+                                        $("#CheckAll").click(function () {
+
+                                            if ($(this).is(":checked")) {
+
+                                                $("input[name='ids']:checkbox").prop("checked", true);
+
+                                            } else {
+
+                                                $("input[name='ids']:checkbox").prop("checked", false);
+                                            }
+                                        });
+                                    });
+                                </script>
+                            </th>
+                        }
+
+                        @foreach (var title in properties)
+                        {
+                            if (title.Name == "Id")
+                            {
+                                if (edit)
+                                {
+                                    <th nowrap>
+                                        @HtmlLocalizer["Edit"]
+                                    </th>
+                                }
+                            }
+                            else
+                            {
+                                var routevalues = ViewContext.RouteData.Values;
+                                var r = new RouteValueDictionary(routevalues);
+                                if (r.Keys.Contains("ordering"))
+                                {
+                                    r.Remove("ordering");
+                                }
+                                <th nowrap>
+                                    @if (Context.Request.Query["ordering"] == title.Name)
+                                    {
+                                        r.Add("ordering", title.Name + " desc");
+                                        <a href='#@Url.Action(routevalues["action"].ToString(), r)'> @HtmlLocalizer[title.Name] <i class="fas fa-long-arrow-alt-down"></i></a>
+
+                                    }
+                                    else if (Context.Request.Query["ordering"] == title.Name + " desc")
+                                    {
+                                        r.Add("ordering", title.Name);
+                                        <a href='#@Url.Action(routevalues["action"].ToString(), r)'> @HtmlLocalizer[title.Name] <i class="fas fa-long-arrow-alt-up"></i></a>
+                                    }
+                                    else
+                                    {
+                                        r.Add("ordering", title.Name);
+                                        <a href='#@Url.Action(routevalues["action"].ToString(), r)'>
+                                            @HtmlLocalizer[title.Name]
+                                        </a>
+                                    }
+                                </th>
+                            }
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model.GetType().GetProperties()[0].GetValue(Model, null))
+                    {
+                        ViewBag.DataList = item;
+                        <tr>
+                            @if (!string.IsNullOrEmpty(Html.Value("DataList.Id")))
+                            {
+                                <td nowrap class="text-center">
+                                    <input name="ids" type="checkbox" value="@Html.Value("DataList.Id")" class="btn">
+                                </td>
+                            }
+                            @foreach (var title in properties)
+                            {
+                                if (title.Name == "Id")
+                                {
+                                    if (edit)
+                                    {
+                                        <td nowrap class="text-center">
+                                            <a asp-action="Edit" asp-route-id="@Html.DisplayText("DataList.Id")" data-ajax="true" data-ajax-update="#Main">@HtmlLocalizer["Edit"]</a>
+                                        </td>
+                                    }
+                                }
+                                else
+                                {
+                                    <td nowrap onclick="javascript:window.location.href = '#@Url.Action("Details", new {Id = Html.Value("DataList.Id")})';" style="cursor: pointer;max-width:150px;overflow:hidden; text-overflow:ellipsis; ">
+                                        @Html.Display("DataList." + title.Name)
+                                    </td>
+                                }
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <pager style="text-align: center;" pager-option="Model" pager-ajax=true></pager>
+        </div>
+    </div>
+</div>

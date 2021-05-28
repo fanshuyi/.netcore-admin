@@ -1,0 +1,10 @@
+@model MultiSelectList
+
+@if (ViewBag.IsRequired)
+{
+    <select asp-items="Model" multiple="multiple" id="@Html.NameForModel()" name="@Html.NameForModel()" class="select2" style="width:100%" required></select>
+}
+else
+{
+    <select asp-items="Model" multiple="multiple" id="@Html.NameForModel()" name="@Html.NameForModel()" class="select2" style="width:100%"></select>
+}

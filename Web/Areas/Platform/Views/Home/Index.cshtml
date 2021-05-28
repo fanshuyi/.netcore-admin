@@ -1,0 +1,179 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    ViewData["Title"] = "Platform";
+    var controller = (string)Context.Request.RouteValues["controller"];
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=0.85" />
+    <title>@HtmlLocalizer[ViewBag.Title] -   @Configuration["SystemName"]</title>
+    <link rel="stylesheet" href="/css/site.min.css" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <script src="~/lib/ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+    <script src="~/lib/ckeditor/ckeditor5-build-classic/build/translations/zh-cn.js"></script>
+    <script src="~/js/site.min.js"></script>
+
+    <SCRIPT type="text/javascript">
+        var curMenu = null, zTree_Menu = null;
+        var setting = {
+            view: {
+                showLine: false,
+                showIcon: false,
+                selectedMulti: false,
+                dblClickExpand: false,
+                addDiyDom: addDiyDom
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            callback: {
+                beforeClick: beforeClick
+            }
+        };
+
+        var zNodes = @Html.Raw(ViewBag.Menu);
+
+        function beforeClick(treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("platformmenu");
+            zTree.expandNode(treeNode);
+            zTree.selectNode(treeNode);
+            return false;
+        }
+
+        function addDiyDom(treeId, treeNode) {
+            var spaceWidth = 5;
+            var switchObj = $("#" + treeNode.tId + "_switch"),
+                icoObj = $("#" + treeNode.tId + "_ico");
+            switchObj.remove();
+            icoObj.before(switchObj);
+
+            if (treeNode.level > 0) {
+                var spaceStr = "<span style='display: inline-block;width:" +
+                    (spaceWidth * treeNode.level) +
+                    "px'></span>";
+                switchObj.before(spaceStr);
+            }
+        }
+
+        $(document).ready(function(){
+             $.fn.zTree.init($("#platformmenu"), setting, zNodes);
+           });
+    </SCRIPT>
+
+    <script>
+
+        $(function() {
+            if (window.location.hash.length > 1) {
+                $("#Main").load(window.location.hash.substr(1));
+
+                // 打开当前目录
+                var zTree = $.fn.zTree.getZTreeObj("platformmenu");
+                var node = zTree.getNodeByParam('url', "#" + window.location.hash.substr(1), null)
+                zTree.selectNode(node);
+
+            } else {
+                $("#Main").load("@Url.Action("Index", "Desktop")");
+            }
+        });
+
+        window.addEventListener("popstate", function (event) {
+                if (window.location.hash.length > 1) {
+                    $("#Main").load(window.location.hash.substr(1));
+                }
+        }, false);
+
+        var connection = new signalR.HubConnectionBuilder()
+            .withUrl("/messengerhub")
+            .build();
+        connection.on("welcome", message => {
+            $.notify(message,
+                {
+                    placement: {
+                        from: 'bottom', // 'top' or 'bottom'
+                    }
+                }); });
+
+        //connection.on('newmessage', (res) => { $("#usermessagecount").val(res) }          );
+
+        connection.start().then((res) => {  })
+            .catch(err => console.error(err.message));
+    </script>
+    <script>
+        $(function () {
+            $('#Department').change(function () {
+                var p1 = $(this).children('option:selected').val();
+                window.location.href = "?DepartmentId=" + p1 + "#" + window.location.hash.substr(1);
+            })
+        })</script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg  sticky-top bg-light flex-md-nowrap p-0 shadow fixed-top">
+        <div class="navbar-brand col-sm-3 col-md-3 col-lg-2 mr-0" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+
+            @Configuration["SystemName"]
+        </div>
+
+        <ul class="list-inline ml-auto mt-1 mr-3 mb-1">
+            <li class="page-loader spinner-border text-primary spinner-border-sm">
+                <span class="sr-only">Loading...</span>
+            </li>
+            <li class="list-inline-item  text-nowrap">
+                <a href="javascript:void(0);" onclick="window.location.href='#@Url.Action("Index", "Desktop")'">
+                    <em class="fas fa-home"></em>  @HtmlLocalizer["Desktop"]
+                </a>
+            </li>
+
+            <li class="list-inline-item  text-nowrap">
+                <a href="@Url.Action("Index","Manage",new{area=""})" target="_blank">
+                    <em class="fas fa-id-card"></em>  @ViewBag.Nickname
+                </a>
+            </li>
+
+            <li class="list-inline-item  text-nowrap">
+                <a href="javascript:void(0);" onclick="window.location.href='#@Url.Action("Index", "MessageCenter")'">
+                    <em class="fas fa-envelope"></em>  @HtmlLocalizer["Message"] (<span id="usermessagecount">@ViewBag.MessageCount</span>)
+                </a>
+            </li>
+
+            <li class="list-inline-item  text-nowrap">
+
+                <a href="@Url.Action("Logout", "Account", new {Area = ""})">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+                        <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                    </svg> @HtmlLocalizer["Sign out"]
+                </a>
+            </li>
+        </ul>
+
+        <button class="navbar-toggler  d-md-none" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-grid-3x3-gap-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z" />
+            </svg>
+        </button>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row  pt-3">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="sidebar-sticky">
+                    <ul id="platformmenu" class="nav flex-column mb-2 ztree showIcon">
+                    </ul>
+                </div>
+            </nav>
+
+            <main role="main" id="Main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 pb-2">
+            </main>
+        </div>
+    </div>
+</body>
+</html>

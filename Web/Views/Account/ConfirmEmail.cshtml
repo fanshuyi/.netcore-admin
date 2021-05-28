@@ -1,0 +1,27 @@
+﻿@model IdentityResult
+
+@{
+    ViewData["Title"] = "Confirm email";
+}
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+    <div>
+        <p>
+            @if (Model.Succeeded)
+            {
+                <h5>成功!</h5>
+            }
+            else
+            {
+                <h5>失败!</h5>
+            }
+        </p>
+
+        @foreach (var item in Model.Errors)
+        {
+
+            <p>@item.Description</p>
+
+        }
+    </div>
+</div>

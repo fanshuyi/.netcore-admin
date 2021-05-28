@@ -1,0 +1,6 @@
+﻿@{
+    var routevalues = Context.Request.Query.ToDictionary(key => key.Key, value => value.Value.ToString());
+
+    routevalues.Remove("id");
+}
+<a class="btn btn-light" asp-action="Index" asp-all-route-data="routevalues" data-ajax="true" data-ajax-update="#Main"> <i class="fa fa-chevron-left"></i> @HtmlLocalizer["Back"]</a>

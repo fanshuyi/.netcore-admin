@@ -1,0 +1,21 @@
+﻿@model Models.SysModels.SysHelp
+@{
+    ViewData["Title"] = "帮助中心";
+}
+<div class="container" style="padding-top:20px;">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">首页</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Help" asp-action="Index">帮助中心</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">详情</li>
+        </ol>
+    </nav>
+    <dl>
+
+        <dt style="font-size:150%">@Html.DisplayFor(a => a.Title)</dt>
+        <dd>
+            @Html.DisplayFor(a => a.Content)
+        </dd>
+    </dl>
+</div>

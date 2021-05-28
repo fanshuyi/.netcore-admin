@@ -1,0 +1,16 @@
+﻿<div class="input-group">
+
+    <select name="@(ViewBag.Name)_method" id="@(ViewBag.Name)_method" class="form-control  col-3">
+        <option value="==">等于</option>
+        <option value=">">大于</option>
+        <option value="<">小于</option>
+        <option value=">=">大于等于</option>
+        <option value="<=">小于等于</option>
+    </select>
+
+    <input name="@ViewBag.Name" type="text" class="form-control" placeholder="0" value="@Context.Request.Query[ViewBag.Name]" />
+</div>
+
+<script>
+            $("#@(ViewBag.Name)_method option[value='@Context.Request.Query[ViewBag.Name+ "_method"]']").attr("selected", "selected");
+</script>

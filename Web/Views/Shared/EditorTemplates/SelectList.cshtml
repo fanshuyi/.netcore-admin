@@ -1,0 +1,22 @@
+@model SelectList
+@*@ViewData["IsRequired"]??"required")*@
+
+@if (ViewBag.IsRequired)
+{
+
+    <div class="select">
+        <select asp-items="Model" id="@Html.NameForModel()" name="@Html.NameForModel()" class="select2" data-placeholder="请选择" required>
+            <option value=""></option>
+        </select>
+    </div>
+
+}
+else
+{
+    <div class="select">
+        <select asp-items="Model" id="@Html.NameForModel()" name="@Html.NameForModel()" class="select2" data-placeholder="请选择">
+            <option value=""></option>
+        </select>
+    </div>
+
+}

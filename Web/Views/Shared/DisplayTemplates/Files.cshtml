@@ -1,0 +1,13 @@
+﻿@using Humanizer
+<ol id="file-list-@Html.NameForModel()">
+    @{
+        var arr = Newtonsoft.Json.JsonConvert.DeserializeObject(Model);
+
+        foreach (var item in arr)
+        {
+            <li>
+                <a href="@item["url"]" target="_blank">@item["fileName"]</a> (@(((int)item["length"]).Bytes().Humanize("0.0")))
+            </li>
+        }
+    }
+</ol>

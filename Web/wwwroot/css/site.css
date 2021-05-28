@@ -1,0 +1,266 @@
+﻿html {
+    min-height: 100%;
+}
+
+body {
+    background-image: url(/img/logo-gray-10.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 50%;
+    min-height: 100%;
+    background-color: aliceblue;
+}
+
+ol {
+    padding-left: 1.5em
+}
+
+pre {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+}
+
+a {
+    color: black;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+.feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+}
+
+td > .decimal {
+    text-align: right;
+    max-width: 100px;
+}
+
+td > .boolean {
+    text-align: center;
+}
+/*
+ * Sidebar
+ */
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 48px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 3em;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@media (min-width: 768px) {
+    .sidebar-sticky {
+        padding-top: .6em;
+    }
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+}
+
+    .sidebar .nav-link .feather {
+        margin-right: 4px;
+        color: #999;
+    }
+
+    .sidebar .nav-link.active {
+        color: #007bff;
+    }
+
+        .sidebar .nav-link:hover .feather,
+        .sidebar .nav-link.active .feather {
+            color: inherit;
+        }
+
+.sidebar-heading {
+    text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background-color: rgba(0, 0, 0, .25);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .form-control {
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+}
+
+.form-control-dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+}
+
+    .form-control-dark:focus {
+        border-color: transparent;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+    }
+
+.ztree * {
+    font-size: initial;
+    font-family: inherit;
+}
+
+.ztree {
+    padding: 5px 10px;
+}
+
+    .ztree li {
+        line-height: 40px;
+    }
+
+        .ztree li a {
+            width: 100%;
+            height: 40px;
+        }
+
+            .ztree li a:hover {
+                text-decoration: none;
+                background-color: #E7E7E7;
+            }
+
+            .ztree li a span.button.switch {
+                visibility: hidden
+            }
+
+    .ztree.showIcon li a span.button.switch {
+        visibility: visible
+    }
+
+    .ztree li a.curSelectedNode {
+        background-color: #D4D4D4;
+        border: 0;
+        height: 40px;
+    }
+
+    .ztree li span {
+    }
+
+        .ztree li span.button {
+            margin-top: -7px;
+        }
+
+            .ztree li span.button.switch {
+                width: 16px;
+                height: 16px;
+            }
+
+    .ztree li a.level0 span {
+        font-size: 130%;
+        font-weight: bold;
+    }
+
+    .ztree li a.curSelectedNode {
+        background-color: #FFE6B0;
+        font-weight: bold;
+    }
+
+    .ztree li span.button {
+        background-image: url("/img/left_menuForOutLook.png");
+        *background-image: url("/img/left_menuForOutLook.gif")
+    }
+
+        .ztree li span.button.switch.level0 {
+            width: 20px;
+            height: 20px
+        }
+
+        .ztree li span.button.switch.level1 {
+            width: 20px;
+            height: 20px
+        }
+
+        .ztree li span.button.noline_open {
+            background-position: 0 0;
+        }
+
+        .ztree li span.button.noline_close {
+            background-position: -18px 0;
+        }
+
+        .ztree li span.button.noline_open.level0 {
+            background-position: 0 -18px;
+        }
+
+.table-primary {
+    color: white;
+    text-align: center;
+}
+
+    .table-primary a {
+        color: white;
+        display: block;
+    }
+
+.navbar-dark a {
+    color: white;
+    padding: 10px;
+}
+
+    .navbar-dark a:hover {
+        background-color: white;
+        color: #007bff;
+    }
+
+ul {
+    margin: 0
+}
+
+label {
+    margin: 0;
+    padding: 0;
+}
+
+.input-validation-error {
+    border-color: red;
+}
+
+.select2-container .select2-selection--single {
+    padding: 4px;
+    height: auto;
+    border: 1px solid #ced4da;
+}
+
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid #ced4da;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    padding: 18px;
+}
+
+.nav-tabs {
+    border-bottom: hidden;
+}

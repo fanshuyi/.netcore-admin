@@ -1,0 +1,25 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var controller = (string)Context.Request.RouteValues["controller"];
+}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.85,user-scalable=no" />
+    <title> @HtmlLocalizer[ViewBag.Title] -  @Configuration["SystemName"]</title>
+    <link rel="stylesheet" href="~/css/site.min.css" />
+    @RenderSection("Styles", required: false)
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
+    <script src="~/lib/ckeditor/ckeditor5-build-classic/build/ckeditor.js" asp-append-version="true"></script>
+    <script src="~/lib/ckeditor/ckeditor5-build-classic/build/translations/zh-cn.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</head>
+<body>
+    @RenderBody()
+
+    <partial name="_alerts" />
+    <partial name="_validationSummary" />
+</body>
+</html>

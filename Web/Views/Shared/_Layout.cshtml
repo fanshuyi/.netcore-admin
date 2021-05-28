@@ -1,0 +1,109 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    Layout = "_LayoutBase";
+    var controller = (string)Context.Request.RouteValues["controller"];
+}
+@section Styles{
+    @RenderSection("Styles", required: false)
+}
+
+@section Scripts
+    {
+    @RenderSection("Scripts", required: false)
+}
+<header>
+    <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-white border-bottom box-shadow mb-3 justify-content-between shadow fixed-top">
+        <div class="container">
+            <a asp-area="" asp-controller="Home" asp-action="Index">
+
+                <div class="media">
+                    <div class="media-body">
+                        <div style="font-size:134%">
+                            @Configuration["SystemName"]
+
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <div class="ml-auto text-center dropdown">
+
+                    @*<a class="btn btn-light @(controller=="Home"?"active":"")" asp-area="" asp-controller="Home" asp-action="Index"> 首页 </a>
+
+                        <a class="page-loader spinner-border text-primary spinner-border-sm">
+                            <span class="sr-only">Loading...</span>
+                        </a>
+
+                        <a class="btn btn-light @(controller=="Tutor"?"active":"")" asp-area="" asp-controller="Tutor" asp-action="Index"> 融众导师 </a>
+
+                        <a class="btn btn-light @(controller=="Course"?"active":"")" asp-area="" asp-controller="Course" asp-action="Index"> 精品课  <span class="badge badge-danger badge-pill">New</span> </a>
+
+                        <a class="btn btn-light  @(controller=="Market"?"active":"")" asp-area="" asp-controller="Market" asp-action="Index"> 公益商城 </a>
+
+                    *@
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="btn-group">
+
+
+                            <a class=" btn btn-info" asp-area="Platform" asp-controller="Home" asp-action="Index">
+
+                                <img src="~/img/index-bg.jpg" class="rounded-circle border" alt="融众导师" height="20" width="20" style="vertical-align:text-top; ">  管理平台
+                            </a>
+                            <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-action="Index" asp-controller="Manage">个人信息</a>
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-action="Logout" asp-controller="Account">退出系统</a>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+
+                        <a asp-controller="Account" asp-action="Login" class="btn">登录</a>
+
+                        <span>/</span>
+                        <a asp-controller="Account" asp-action="Register" class="btn">注册</a>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main role="main" class="container" style="margin-top:85px;">
+    @RenderBody()
+</main>
+
+<footer class="border-top footer text-muted p-3 mt-3">
+    <div class="container small">
+
+
+
+
+        <div>
+            <p>
+                <a asp-area="" asp-controller="Home" asp-action="Privacy">隐私策略</a> -  <a asp-area="" asp-controller="About" asp-action="Index">关于我们</a> - <a asp-area="" asp-controller="Document" asp-action="Index">使用教程 </a> -  <a asp-area="" asp-controller="SiteMap" asp-action="Index">网站地图</a>
+            </p>
+        </div>
+        <div>
+            <p>
+
+                @Configuration["Copyright"]
+            </p>
+        </div>
+    </div>
+</footer>

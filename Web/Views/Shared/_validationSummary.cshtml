@@ -1,0 +1,20 @@
+@*@if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+    {
+        <div class="alert  alert-danger">
+            <a class="close" data-dismiss="alert">&times;</a>
+            @Html.ValidationSummary()
+        </div>
+    }*@
+@foreach (var item in ViewData.ModelState.Values)
+{
+    foreach (var err in item.Errors)
+    {
+        <script>
+            $.notify("@HtmlLocalizer[err.ErrorMessage]", {
+                "type": "danger", placement: {
+                    from: 'bottom', // 'top' or 'bottom'
+                    align: 'right' // 'left', 'center' or 'right',
+                } });
+        </script>
+    }
+}

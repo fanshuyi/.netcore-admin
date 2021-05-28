@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@section Styles{
+    @RenderSection("Styles", required: false)
+}
+
+@section Scripts
+    {
+    @RenderSection("Scripts", required: false)
+}
+<div class="container " style="padding-top:20px;">
+
+    <h2>@HtmlLocalizer["Manage your account"]</h2>
+
+    <div>
+        <h4> @HtmlLocalizer["Change your account settings"]</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                @await Html.PartialAsync("_ManageNav")
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</div>

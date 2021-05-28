@@ -1,0 +1,7 @@
+﻿@{
+    var routevalues = Context.Request.Query.ToDictionary(key => key.Key, value => value.Value.ToString());
+
+    routevalues["toExcelFile"] = "True";
+}
+
+<a class="btn btn-info" asp-action="Index" asp-all-route-data="routevalues" target="_blank"> <i class="fas  fa-file-export"></i> @HtmlLocalizer["Export"]</a>

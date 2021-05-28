@@ -1,0 +1,11 @@
+﻿@{
+    var routevalues = Context.Request.Query.ToDictionary(key => key.Key, value => value.Value.ToString());
+    routevalues.Remove("id");
+}
+
+<button type="submit" class="btn btn-success">
+    <i class="fa fa-check"></i>
+    @HtmlLocalizer["Save"]
+</button>
+
+<a class="btn btn-light" asp-action="Index" asp-all-route-data="routevalues" data-ajax="true" data-ajax-update="#Main"> <i class="fa fa-times"></i> @HtmlLocalizer["Cancel"]</a>

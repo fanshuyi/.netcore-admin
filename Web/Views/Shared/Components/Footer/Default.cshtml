@@ -1,0 +1,34 @@
+﻿@model IQueryable<Models.SysModels.SysHelpClass>
+
+@{
+    Layout = null;
+}
+
+<footer class=" pt-4 my-md-5 pt-md-5 border-top">
+    <div class="container">
+        <div class="row container">
+            <div class="col-4 col-md text-center">
+                <div><img class="mb-2" style="vertical-align:middle;" src="~/img/Logo-color.png" alt="" width="30" height="30"> </div>
+                <div>
+                    天津易顺科技服务有限公司
+                </div>
+                <div> <small class="d-block mb-3 text-muted">© 2018-@DateTime.Now.Year</small></div>
+                <div><a href="http://www.beian.miit.gov.cn" target="_blank">津ICP备 20001678</a></div>
+            </div>
+
+            @foreach (var item in Model)
+            {
+                <div class="col-4 col-md">
+                    <h5>@Html.DisplayFor(a => item.Name)</h5>
+                    <ul class="list-unstyled text-small">
+
+                        @foreach (var item1 in item.SysHelps)
+                        {
+                            <li><a class="text-muted" asp-area="" asp-action="Details" asp-controller="Help" asp-route-Id="@item1.Id">@Html.DisplayFor(a => item1.Title)</a></li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+    </div>
+</footer>

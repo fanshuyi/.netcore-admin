@@ -1,0 +1,9 @@
+﻿@model bool?
+@*<input id="@Html.IdForModel()" name="@Html.NameForModel()" type="checkbox" class="m-2" value="True" @(Model.HasValue && Model.Value ? "checked" : "")>*@
+
+<div class="custom-control custom-checkbox m-2">
+    <input type="checkbox" class="custom-control-input " id="@Html.IdForModel()" name="@Html.NameForModel()" value="True" @(Model.HasValue && Model.Value ? "checked" : "")>
+    <label class="custom-control-label" for="@Html.IdForModel()"></label>
+</div>
+
+<input id="@Html.IdForModel()" name="@Html.NameForModel()" type="hidden" value="False" checked="@Model">

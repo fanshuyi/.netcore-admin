@@ -1,0 +1,14 @@
+﻿@using Humanizer
+@model DateTimeOffset?
+<span title="@(Model.HasValue?Model.Value.LocalDateTime:"")" class="d-print-none">
+
+    @Model.Humanize()
+
+    @*@Model.Humanize(utcDate: false)*@
+</span>
+
+<span class="d-none d-print-block">
+    @Model
+</span>
+
+@* 需要在 Azure App service 中配置 [WEBSITE_TIME_ZONE, China Standard Time]*@

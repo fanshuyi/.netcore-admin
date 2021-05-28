@@ -1,0 +1,41 @@
+@{
+    var i = 1;
+}
+
+@foreach (var prop in ViewData.ModelMetadata.Properties.Where(pm => pm.ShowForEdit && !pm.IsReadOnly && pm.ModelType != typeof(Microsoft.EntityFrameworkCore.Infrastructure.ILazyLoader)).OrderBy(a => a.Order))
+{
+    if (prop.TemplateHint == "HiddenInput")
+    {
+        @Html.Hidden(prop.PropertyName)
+    }
+    else
+    {
+        if (prop.DataTypeName == "Html" || prop.DataTypeName == "MultilineText" || (prop.IsComplexType && !string.IsNullOrEmpty(prop.DataTypeName)))
+        {
+            <div class="col-md-12  col-sm-12">
+                <div class="row mt-2" style="margin:0">
+                    <div class="col-md-2" style="background-color: #f4f4f4;line-height: 2.4em;">
+                        <label for="@prop.PropertyName">@i ) @HtmlLocalizer[prop.GetDisplayName()] <span class="text-danger">@(prop.IsRequired ? "*" : "")</span></label>
+                    </div>
+                    <div class="col-md-10" style="padding-left:0px;padding-right:0;">
+                        @Html.Editor(prop.PropertyName, !string.IsNullOrEmpty(prop.TemplateHint) ? prop.TemplateHint : prop.DataTypeName, prop)
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="col-md-6  col-sm-12">
+                <div class="row mt-2" style="margin:0">
+                    <div class="col-md-4 " style="background-color: #f4f4f4;line-height: 2.4em; ">
+                        <label for="@prop.PropertyName">@i ) @HtmlLocalizer[@prop.GetDisplayName()] <span class="text-danger">@(prop.IsRequired ? "*" : "")</span></label>
+                    </div>
+                    <div class="col-md-8" style="padding-left:2.5px; padding-right:0">
+                        @Html.Editor(prop.PropertyName, !string.IsNullOrEmpty(prop.TemplateHint) ? prop.TemplateHint : prop.DataTypeName, prop)
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    i++;
+}

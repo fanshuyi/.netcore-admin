@@ -1,0 +1,25 @@
+﻿@model IQueryable<Models.SysModels.SysHelp>
+@{
+    ViewData["Title"] = "Help Center";
+}
+<div class="container" style="padding-top:20px;">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="margin:0">
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home" localize-content>Home Page</a></li>
+            <li class="breadcrumb-item active" aria-current="page" localize-content>@ViewData["Title"]</li>
+        </ol>
+    </nav>
+
+    <div class=" my-3 p-3 bg-white rounded shadow-sm">
+
+        <dl>
+            @foreach (var item in Model)
+            {
+                <dt style="font-size:150%">@Html.DisplayFor(a => item.Title)</dt>
+                <dd>
+                    @Html.DisplayFor(a => item.Content)
+                </dd>
+            }
+        </dl>
+    </div>
+</div>

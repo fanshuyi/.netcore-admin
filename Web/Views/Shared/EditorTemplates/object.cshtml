@@ -1,0 +1,14 @@
+﻿@foreach (var prop in ViewData.ModelMetadata.Properties.Where(pm => pm.ShowForEdit && !pm.IsReadOnly).OrderBy(a => a.Order))
+{
+    if (prop.TemplateHint == "HiddenInput")
+    {
+        @Html.Hidden(prop.PropertyName)
+    }
+    else
+    {
+        <div class="form-group">
+            <label for="@prop.PropertyName">@HtmlLocalizer[prop.GetDisplayName()] @(prop.IsRequired ? "*" : "") </label>
+            @Html.Editor(prop.PropertyName, !string.IsNullOrEmpty(prop.TemplateHint) ? prop.TemplateHint : prop.DataTypeName)
+        </div>
+    }
+}

@@ -1,0 +1,12 @@
+﻿<div id="image-list-@Html.NameForModel()"></div>
+
+<script>
+    var images = JSON.parse('@(Model==null?"[]":Html.Raw(Model))');
+            for (i = 0; i < images.length; i++) {
+                document.getElementById("image-list-@Html.NameForModel()").innerHTML += "<a href='" + images[i].url + "' style='width:100px;text-align:center;    display: inline-block;' ><img  style='max-width: 100px; max-height: 100px; ' src='" + images[i].url + "' /><p style='width:100px;text-align:center;'>" + images[i].createDateTime+"</p></a>";
+    }
+
+   $('#image-list-@Html.NameForModel()').lightGallery({
+       thumbnail: true
+});
+</script>

@@ -1,0 +1,12 @@
+﻿<div class="select">
+    <select name="@(ViewBag.Name)" id="@(ViewBag.Name)" class="form-control">
+        <option></option>
+        @foreach (int value in Enum.GetValues(Type.GetType(ViewBag.typename, true)))
+        {
+            <option value="@value">@Enum.GetName(Type.GetType(ViewBag.typename, true), value)</option>
+        }
+    </select>
+</div>
+<script>
+    $("#@(ViewBag.Name) option[value='@Context.Request.Query[ViewBag.Name]']").attr("selected","selected");
+</script>

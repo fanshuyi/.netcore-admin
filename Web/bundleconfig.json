@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "outputFileName": "wwwroot/css/site.min.css",
     "inputFiles": [
@@ -17,10 +17,10 @@
     "inputFiles": [
       "node_modules/jquery/dist/jquery.js",
       "node_modules/jquery.cookie/jquery.cookie.js",
-      "node_modules/@popperjs/dist/umd/popper.js",
+      "node_modules/popper.js/dist/umd/popper.js",
       "node_modules/bootstrap/dist/js/bootstrap.js",
       "node_modules/lightgallery/dist/js/lightgallery-all.js",
-      "node_modules/chart.js/dist/Chart.js",
+      // "node_modules/chart.js/dist/Chart.js",
       "node_modules/jquery-storage-api/jquery.storageapi.js",
       "node_modules/jquery-validation/dist/jquery.validate.js",
       "node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js",

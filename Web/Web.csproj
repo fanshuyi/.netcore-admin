@@ -771,4 +771,7 @@
       <UserProperties appsettings_1json__JsonSchema="" bundleconfig_1json__JsonSchema="" />
     </VisualStudio>
   </ProjectExtensions>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="npm i" />
+  </Target>
 </Project>

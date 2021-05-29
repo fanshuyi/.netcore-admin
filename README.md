@@ -12,6 +12,15 @@
 
 # 三、依赖/中间件
 
+1、EFCore
+2、EFCoreSecondLevelCache
+3、Dapper
+4、AutoMapper
+5、EPPlus
+6、Swashbuckle
+7、EasyCaching.InMemory
+8、EasyCaching.Redis
+9、Humanizer
 
 # 四、系统特点
 

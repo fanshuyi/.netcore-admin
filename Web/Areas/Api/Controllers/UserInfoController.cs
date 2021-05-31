@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using Web.Areas.Api.Models;
+using Dapr.Client;
+using Dapr;
+using System.Net.Http;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -23,6 +26,7 @@ namespace Web.Areas.Api.Controllers
     {
         private IUserInfo userInfo;
         private readonly IResInfo _IResInfo;
+        private readonly DaprClient _daprClient;
 
         /// <summary>
         /// </summary>
@@ -35,11 +39,19 @@ namespace Web.Areas.Api.Controllers
         }
 
         // GET: api/values
+
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             _IResInfo.Data = userInfo;
 
+            return Ok(_IResInfo);
+        }
+
+        [Topic("pubsub", "PostUeerInfo")]
+        [HttpPost]
+        public async Task<IActionResult> Post()
+        {
             return Ok(_IResInfo);
         }
     }

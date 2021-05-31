@@ -248,7 +248,7 @@ namespace Web
 
             services.AddHealthChecks();
 
-            services.AddControllersWithViews().AddRazorRuntimeCompilation().AddNewtonsoftJson(options =>
+            services.AddControllersWithViews().AddDapr().AddRazorRuntimeCompilation().AddNewtonsoftJson(options =>
           {
               options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
               options.SerializerSettings.ContractResolver = new DefaultContractResolver();
@@ -351,6 +351,8 @@ namespace Web
 
             app.UseCors("全部允许");
 
+            app.UseCloudEvents();
+
             app.UseAuthentication();
 
             app.UseAuthorization();
@@ -362,6 +364,8 @@ namespace Web
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapSubscribeHandler();
+
                 endpoints.MapControllerRoute(
                   name: "default-l",
                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");

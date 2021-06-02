@@ -269,7 +269,7 @@ namespace Web
                     },
                     License = new OpenApiLicense
                     {
-                        Name = "天津环球汇智科技有限公司"
+                        Name = Configuration["Copyright"]
                     }
                 });
 
@@ -312,6 +312,8 @@ namespace Web
 
                 c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Web.xml"));
             });
+
+            services.AddGrpc();
 
             services.AddRazorPages();
             services.AddServerSideBlazor();

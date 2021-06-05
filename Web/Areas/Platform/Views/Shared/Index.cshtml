@@ -44,13 +44,13 @@
 
         @if (userAuthorize.Check(User, area, controller, "Delete"))
         {
-            <a class="btn btn-danger disabled" href="javascript:;" id="deleteall"> <i class="far fa-trash-alt"></i> @HtmlLocalizer["Delete"]</a>
+            <a class="btn btn-danger disabled" href="javascript:;" id="deleteall"> <i class="fa fa-trash-o"></i> @HtmlLocalizer["Delete"]</a>
         }
 
         @if (userAuthorize.Check(User, area, controller, "Audit"))
         {
             <a class="btn btn-success disabled" href="javascript:;" id="auditall">
-                <i class="far fa-check-square"></i>
+                <i class="fa fa-check-square"></i>
 
                 @if (ViewBag.SubmitAudit != null && ViewBag.SubmitAudit)
                 {

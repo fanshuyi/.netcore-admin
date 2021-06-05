@@ -13,11 +13,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=0.85" />
     <title>@HtmlLocalizer[ViewBag.Title] -   @Configuration["SystemName"]</title>
-    <link rel="stylesheet" href="/css/site.min.css" />
-    <link href="~/css/StyleSheet.css" rel="stylesheet" />
-    <script src="~/lib/ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
-    <script src="~/lib/ckeditor/ckeditor5-build-classic/build/translations/zh-cn.js"></script>
-    <script src="~/lib/chart.js/dist/chart.js"></script>
+    <link rel="stylesheet" href="/css/site.min.css" />    
     <script src="~/js/site.min.js"></script>
 
     <SCRIPT type="text/javascript">
@@ -129,19 +125,19 @@
             </li>
             <li class="list-inline-item  text-nowrap">
                 <a href="javascript:void(0);" onclick="window.location.href='#@Url.Action("Index", "Desktop")'">
-                    <em class="fas fa-home"></em>  @HtmlLocalizer["Desktop"]
+                    <em class="fa fa-home"></em>  @HtmlLocalizer["Desktop"]
                 </a>
             </li>
 
             <li class="list-inline-item  text-nowrap">
                 <a href="@Url.Action("Index","Manage",new{area=""})" target="_blank">
-                    <em class="fas fa-id-card"></em>  @ViewBag.Nickname
+                    <em class="fa fa-id-card"></em>  @ViewBag.Nickname
                 </a>
             </li>
 
             <li class="list-inline-item  text-nowrap">
                 <a href="javascript:void(0);" onclick="window.location.href='#@Url.Action("Index", "MessageCenter")'">
-                    <em class="fas fa-envelope"></em>  @HtmlLocalizer["Message"] (<span id="usermessagecount">@ViewBag.MessageCount</span>)
+                    <em class="fa fa-envelope"></em>  @HtmlLocalizer["Message"] (<span id="usermessagecount">@ViewBag.MessageCount</span>)
                 </a>
             </li>
 

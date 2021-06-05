@@ -7,30 +7,28 @@
       "node_modules/zTree/css/zTreeStyle/zTreeStyle.css",
       "node_modules/flatpickr/dist/flatpickr.css",
       "node_modules/bootstrap4-tagsinput-umd/tagsinput.css",
-      "wwwroot/lib/font-awesome/css/all.css",
-      "wwwroot/lib/lightgallery/dist/css/lightgallery.css",
+      "wwwroot/font-awesome/css/font-awesome.min.css",
+      "node_modules/lightgallery/dist/css/lightgallery.css",
       "wwwroot/css/site.css"
     ]
   },
   {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
-      "node_modules/jquery/dist/jquery.js",
+      "node_modules/jquery/dist/jquery.min.js",
       "node_modules/jquery.cookie/jquery.cookie.js",
-      "node_modules/popper.js/dist/umd/popper.js",
-      "node_modules/bootstrap/dist/js/bootstrap.js",
-      "node_modules/lightgallery/dist/js/lightgallery-all.js",
-      // "node_modules/chart.js/dist/Chart.js",
+      "node_modules/popper.js/dist/umd/popper.min.js",
+      "node_modules/bootstrap/dist/js/bootstrap.min.js",
+      "node_modules/lightgallery/dist/js/lightgallery-all.min.js",
       "node_modules/jquery-storage-api/jquery.storageapi.js",
-      "node_modules/jquery-validation/dist/jquery.validate.js",
-      "node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js",
+      "node_modules/jquery-validation/dist/jquery.validate.min.js",
+      "node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js",
       "node_modules/jquery-validation-unobtrusive-bootstrap/dist/unobtrusive-bootstrap.js",
-      "node_modules/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.js",
-      "node_modules/jquery-mask-plugin/dist/jquery.mask.js",
-      "node_modules/zTree/js/jquery.ztree.all.js",
-      "wwwroot/js/pinyin.js", //minify”–Œ Ã‚
+      "node_modules/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js",
+      "node_modules/jquery-mask-plugin/dist/jquery.mask.min.js",
+      "node_modules/zTree/js/jquery.ztree.all.min.js",
+      "wwwroot/js/pinyin.js", 
       "wwwroot/js/select2.js",
-      //"node_modules/select2/dist/js/select2.js",
       "node_modules/jquery-scroll-lock/jquery-scrollLock.js",
       "node_modules/jquery.scrollbar/jquery.scrollbar.js",
       "node_modules/bootstrap-notify/bootstrap-notify.js",
@@ -38,6 +36,11 @@
       "node_modules/flatpickr/dist/flatpickr.js",
       "node_modules/flatpickr/dist/l10n/zh.js",
       "node_modules/bootstrap4-tagsinput-umd/tagsinput.js",
+
+      "node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js",
+      "node_modules/@ckeditor/ckeditor5-build-classic/translations/zh-cn.js",
+      "node_modules/chart.js/dist/chart.min.js",
+
       "wwwroot/js/site.js"
     ],
     "minify": {

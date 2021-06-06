@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System.Linq;
+using IServices.ISysServices;
 
 namespace Web.Controllers
 {
@@ -12,52 +14,56 @@ namespace Web.Controllers
     public class UploadFileController : Controller
     {
         private readonly IConfiguration _IConfiguration;
+        private readonly IUserInfo _IUserInfo;
 
-        public UploadFileController(IConfiguration iConfiguration)
+        public UploadFileController(IConfiguration iConfiguration, IUserInfo iUserInfo)
         {
             _IConfiguration = iConfiguration;
+            _IUserInfo = iUserInfo;
         }
 
         [HttpPost]
-        public async Task<JsonResult> Index(string from)
+        public async Task<JsonResult> Index(bool SingleFile = true)
         {
             var uploadFiles = new List<UploadFile>(); //上传的文件列表
+
 
             foreach (var formFile in Request.Form.Files)
             {
                 //大小，格式校验....
+                var filepath = "/uploadfile/" + _IUserInfo.UserId + "/" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/";
 
+                var filename = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(formFile.FileName);
 
-                using (var stream = System.IO.File.Create(Guid.NewGuid().ToString()))
+                System.IO.Directory.CreateDirectory("./wwwroot" + filepath);
+
+                using (var stream = System.IO.File.Create("./wwwroot" + filepath + filename))
                 {
                     await formFile.CopyToAsync(stream);
                 }
 
-
-
-
-                if (from == "ckfinder")
-                {
-                    //ckfinder 只处理第一个文件
-                    return Json(new
-                    {
-                        formFile.ContentType,
-                        formFile.FileName,
-                        formFile.Length,
-                        uploaded = true,
-                    });
-                }
-
-                uploadFiles.Add(new UploadFile()
+                var file = new UploadFile()
                 {
                     ContentType = formFile.ContentType,
                     FileName = formFile.FileName,
                     Length = formFile.Length,
+                    uploaded = true,
+                    url = filepath + filename
+                };
+
+                if (SingleFile)
+                {
+                    return Json(file);
                 }
-                );
+                else
+                {
+                    uploadFiles.Add(file);
+                }
+
             }
 
             return Json(uploadFiles);
+
         }
     }
 
@@ -65,7 +71,7 @@ namespace Web.Controllers
     {
         public UploadFile()
         {
-            CreateDateTime = DateTime.Now.ToShortDateString();
+            CreateDateTime = DateTime.Now;
         }
 
         public string ContentType { get; set; }
@@ -74,10 +80,13 @@ namespace Web.Controllers
 
         public long Length { get; set; }
 
-        public Uri Url { get; set; }
+        public string url { get; set; }
 
-        public string CreateDateTime { get; set; }
+        public DateTime CreateDateTime { get; set; }
 
-        public string MobileNumber { get; set; }
+
+        public bool uploaded { get; set; }
+
+        public string Message { get; set; }
     }
 }

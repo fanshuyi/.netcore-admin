@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "devDependencies": {
     "@aspnet/signalr": "1.1.4",
-    "@ckeditor/ckeditor5-build-classic": "23.1.0",
+    "@ckeditor/ckeditor5-build-classic": "27.1.0",
     "bootstrap": "4.6.0",
     "popper.js": "1.16.1",
     "bootstrap4-tagsinput-umd": "1.0.2",

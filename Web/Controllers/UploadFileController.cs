@@ -27,7 +27,6 @@ namespace Web.Controllers
         {
             var uploadFiles = new List<UploadFile>(); //上传的文件列表
 
-
             foreach (var formFile in Request.Form.Files)
             {
                 //大小，格式校验....

@@ -131,13 +131,13 @@
 
             <li class="list-inline-item  text-nowrap">
                 <a href="@Url.Action("Index","Manage",new{area=""})" target="_blank">
-                    <em class="fa fa-id-card"></em>  @ViewBag.Nickname
+                    <i class="fa fa-address-card-o" aria-hidden="true"></i>  @ViewBag.Nickname
                 </a>
             </li>
 
             <li class="list-inline-item  text-nowrap">
                 <a href="javascript:void(0);" onclick="window.location.href='#@Url.Action("Index", "MessageCenter")'">
-                    <em class="fa fa-envelope"></em>  @HtmlLocalizer["Message"] (<span id="usermessagecount">@ViewBag.MessageCount</span>)
+                    <em class="fa fa-envelope-o"></em>  @HtmlLocalizer["Message"] (<span id="usermessagecount">@ViewBag.MessageCount</span>)
                 </a>
             </li>
 

@@ -11,6 +11,7 @@
     "chart.js": "3.3.2",
     "flatpickr": "4.6.9",
     "font-awesome": "4.7.0",
+    "@fortawesome/fontawesome-free": "5.15.3",
     "jquery": "3.6.0",
     "jquery.cookie": "1.4.1",
     "jquery.scrollbar": "0.2.11",

@@ -184,13 +184,13 @@
                                     @if (Context.Request.Query["ordering"] == title.Name)
                                     {
                                         r.Add("ordering", title.Name + " desc");
-                                        <a href='#@Url.Action(routevalues["action"].ToString(), r)'> @HtmlLocalizer[title.Name] <i class="fas fa-long-arrow-alt-down"></i></a>
+                                        <a href='#@Url.Action(routevalues["action"].ToString(), r)'> @HtmlLocalizer[title.Name] <i class="fa fa-long-arrow-down"></i></a>
 
                                     }
                                     else if (Context.Request.Query["ordering"] == title.Name + " desc")
                                     {
                                         r.Add("ordering", title.Name);
-                                        <a href='#@Url.Action(routevalues["action"].ToString(), r)'> @HtmlLocalizer[title.Name] <i class="fas fa-long-arrow-alt-up"></i></a>
+                                        <a href='#@Url.Action(routevalues["action"].ToString(), r)'> @HtmlLocalizer[title.Name] <i class="fa fa-long-arrow-up"></i></a>
                                     }
                                     else
                                     {

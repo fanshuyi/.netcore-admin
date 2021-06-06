@@ -27,8 +27,6 @@
       "node_modules/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js",
       "node_modules/jquery-mask-plugin/dist/jquery.mask.min.js",
       "node_modules/zTree/js/jquery.ztree.all.min.js",
-      "wwwroot/js/pinyin.js", 
-      "wwwroot/js/select2.js",
       "node_modules/jquery-scroll-lock/jquery-scrollLock.js",
       "node_modules/jquery.scrollbar/jquery.scrollbar.js",
       "node_modules/bootstrap-notify/bootstrap-notify.js",
@@ -36,11 +34,11 @@
       "node_modules/flatpickr/dist/flatpickr.js",
       "node_modules/flatpickr/dist/l10n/zh.js",
       "node_modules/bootstrap4-tagsinput-umd/tagsinput.js",
-
       "node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js",
       "node_modules/@ckeditor/ckeditor5-build-classic/translations/zh-cn.js",
       "node_modules/chart.js/dist/chart.min.js",
-
+      "wwwroot/js/pinyin.js", 
+      "wwwroot/js/select2.js",
       "wwwroot/js/site.js"
     ],
     "minify": {

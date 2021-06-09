@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "devDependencies": {
     "@aspnet/signalr": "1.1.4",
-    "@ckeditor/ckeditor5-build-classic": "27.1.0",
+    "@ckeditor/ckeditor5-build-classic": "28.0.0",
     "bootstrap": "4.6.0",
     "popper.js": "1.16.1",
     "bootstrap4-tagsinput-umd": "1.0.2",
@@ -11,7 +11,6 @@
     "chart.js": "3.3.2",
     "flatpickr": "4.6.9",
     "font-awesome": "4.7.0",
-    "@fortawesome/fontawesome-free": "5.15.3",
     "jquery": "3.6.0",
     "jquery.cookie": "1.4.1",
     "jquery.scrollbar": "0.2.11",

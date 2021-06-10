@@ -389,12 +389,7 @@ namespace Web
             await db.Database.ExecuteSqlRawAsync($"EXEC sp_fulltext_table  'dbo.{tableName}','start_background_updateindex';");
 
             //全文检索sql
-            //SELECT *
-            //          FROM dbo.T_Product AS A
-            //            INNER JOIN
-            //              FREETEXTTABLE(dbo.T_Product, ProductName, '我想 来 数据 测试') AS K
-            //              ON A.id = K.[KEY]
-            //          ORDER BY k.RANK DESC
+            // SELECT top 1 *  FROM dbo.JsonDatas AS A   INNER JOIN    FREETEXTTABLE(dbo.JsonDatas, JsonDataStr, '测试') AS K   ON A.id = K.[KEY]  where k.rank>0   ORDER BY k.RANK DESC
         }
     }
 }

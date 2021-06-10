@@ -371,7 +371,7 @@ namespace Web
             //   await db.Database.ExecuteSqlInterpolatedAsync($"EXEC sp_fulltext_database 'enable';IF NOT EXISTS(  SELECT   *   FROM  sys.fulltext_catalogs WITH(NOLOCK)   WHERE    name = 'jsondatafull')  CREATE FULLTEXT CATALOG jsondatafull AS DEFAULT ; IF NOT EXISTS( SELECT  *  FROM sys.fulltext_index_fragments AS a, sys.tables AS b  WHERE  a.table_id = b.object_id AND name = 'JsonDatas') CREATE FULLTEXT INDEX ON dbo.JsonDatas(  JsonDataStr   Language 2052 ) KEY INDEX PK_JsonDatas ON jsondatafull WITH CHANGE_TRACKING AUTO; ");
 
             //启用全文检索 sql server
-            await db.Database.ExecuteSqlRawAsync($"EXEC sp_fulltext_database 'enable'");
+            // await db.Database.ExecuteSqlRawAsync($"EXEC sp_fulltext_database 'enable'");
 
             var tableName = "JsonDatas";
             var fildName = "JsonDataStr";

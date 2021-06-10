@@ -96,6 +96,10 @@ namespace Web.Controllers
                 throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
+            var userClisims = await _userManager.GetClaimsAsync(user);
+
+            await _userManager.RemoveClaimsAsync(user, userClisims.Where(a => a.Type == "Nickname"));
+
             await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("Nickname", model.Nickname));
 
             //var username = user.UserName;

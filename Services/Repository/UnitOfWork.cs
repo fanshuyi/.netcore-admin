@@ -53,8 +53,8 @@ namespace Services.Repository
             {
                 if (record == null) continue;
 
-                record.Property("IsDeleted").CurrentValue = true;
-                record.Property("DeletedDateTime").CurrentValue = DateTimeOffset.Now;
+                //record.Property("IsDeleted").CurrentValue = true;
+                //record.Property("DeletedDateTime").CurrentValue = DateTimeOffset.Now;
                 record.Property("DeletedBy").CurrentValue = _userInfo.UserId;
 
                 // record.State = EntityState.Modified;

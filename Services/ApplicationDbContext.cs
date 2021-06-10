@@ -33,6 +33,7 @@ namespace Services
                 if (entry.Entity.GetType().Name != "IdentityUserRole`1Proxy") //略过某些需要真实删除的类型
                 {
                     entry.Property("IsDeleted").CurrentValue = true;
+                    entry.Property("DeletedDateTime").CurrentValue = DateTimeOffset.Now;
                     entry.State = EntityState.Modified;
                 }
             }

@@ -162,12 +162,6 @@ namespace Web
 
                 #endregion 基础内容 100
 
-
-
-                
-
-                      
-
                         #region 用户管理 900
 
                         new SysController
@@ -263,8 +257,6 @@ namespace Web
                             SystemId = "950310",
                             Ico = "fa-info-circle"
                         },
-
-
 
                         new SysController
                         {
@@ -374,6 +366,35 @@ namespace Web
             await db.SysLogs.AddAsync(new SysLog() { Id = Guid.NewGuid().ToString(), Log = "数据库初始化成功！" }); ;
 
             await db.SaveChangesAsync();
+
+            // jsondata 创建全文检索
+            //   await db.Database.ExecuteSqlInterpolatedAsync($"EXEC sp_fulltext_database 'enable';IF NOT EXISTS(  SELECT   *   FROM  sys.fulltext_catalogs WITH(NOLOCK)   WHERE    name = 'jsondatafull')  CREATE FULLTEXT CATALOG jsondatafull AS DEFAULT ; IF NOT EXISTS( SELECT  *  FROM sys.fulltext_index_fragments AS a, sys.tables AS b  WHERE  a.table_id = b.object_id AND name = 'JsonDatas') CREATE FULLTEXT INDEX ON dbo.JsonDatas(  JsonDataStr   Language 2052 ) KEY INDEX PK_JsonDatas ON jsondatafull WITH CHANGE_TRACKING AUTO; ");
+
+            //启用全文检索 sql server
+            await db.Database.ExecuteSqlRawAsync($"EXEC sp_fulltext_database 'enable'");
+
+            var tableName = "JsonDatas";
+            var fildName = "JsonDataStr";
+
+            //创建全文目录
+            await db.Database.ExecuteSqlRawAsync($"IF NOT EXISTS(  SELECT   *   FROM  sys.fulltext_catalogs WITH(NOLOCK)   WHERE    name = '{tableName}fulltext') EXEC sp_fulltext_catalog '{tableName}fulltext','create'");
+
+            //表启用全文检索
+            await db.Database.ExecuteSqlRawAsync($" IF NOT EXISTS(  select * from sys.fulltext_indexes AS a, sys.tables AS b  WHERE  a.object_id = b.object_id and name='{tableName}') EXEC sp_fulltext_table 'dbo.{tableName}', 'create', '{tableName}fulltext', 'PK_{tableName}'");
+
+            //添加字段
+            await db.Database.ExecuteSqlRawAsync($" exec sp_fulltext_column 'dbo.{tableName}', '{fildName}', 'add','2052';");
+
+            // 激活全文检索
+            await db.Database.ExecuteSqlRawAsync($"EXEC sp_fulltext_table  'dbo.{tableName}','start_background_updateindex';");
+
+            //全文检索sql
+            //SELECT *
+            //          FROM dbo.T_Product AS A
+            //            INNER JOIN
+            //              FREETEXTTABLE(dbo.T_Product, ProductName, '我想 来 数据 测试') AS K
+            //              ON A.id = K.[KEY]
+            //          ORDER BY k.RANK DESC
         }
     }
 }

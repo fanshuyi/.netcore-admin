@@ -1,25 +1,33 @@
-﻿$(document).ready(function () {
-    var newRecognition = new webkitSpeechRecognition();
-    newRecognition.continuous = true;
-    newRecognition.interimResults = true;
+﻿var newRecognition = new webkitSpeechRecognition();
+newRecognition.continuous = true;
+newRecognition.interimResults = true;
 
-    newRecognition.lang = "zh-CN";
+newRecognition.lang = "zh-CN";
 
-    newRecognition.start();
+var enableAssistant = false;
 
-    newRecognition.onresult = function (event) {
-        for (var i = event.resultIndex; i < event.results.length; ++i) {
-            if (event.results[i].isFinal) {
-                that.val(that.val() + event.results[i][0].transcript)
+newRecognition.onresult = function (event) {
+    for (var i = event.resultIndex; i < event.results.length; ++i) {
+
+        console.log(event.results[i][0].transcript)
+
+        if (event.results[i].isFinal) {
+
+        } else {
+            console.log(event.results[i][0].transcript)
+
+            if (event.results[i][0].transcript == "小萌小萌") {
+                speak('你好在');
             } else {
-                console.log(event.results[i][0].transcript)
-
-                if (event.results[i][0].transcript == "小萌小萌") {
-                    speak('你好在');
-                }
+                speak('我听不懂您在说什么');
             }
         }
     }
+}
+
+
+$(document).ready(function () {
+
     $(".page-loader").hide();
 })
 $(document).ajaxError(function (event, request) {
@@ -50,44 +58,24 @@ $(document).ajaxStart(function () {
 $(document).ajaxStop(function () {
     $('.select2').select2({ dropdownAutoWidth: true, width: '100%' });
 
-    //var newRecognition = new webkitSpeechRecognition();
-    //newRecognition.continuous = true;
-    //newRecognition.interimResults = true;
 
-    //newRecognition.lang = "zh-CN";
-
-    //$("input[type='text'],textarea").focus(function () {
-    //    var that = $(this);
-
-    //    newRecognition.start();
-
-    //    newRecognition.onresult = function (event) {
-    //        for (var i = event.resultIndex; i < event.results.length; ++i) {
-    //            if (event.results[i].isFinal) {
-    //                that.val(that.val() + event.results[i][0].transcript)
-    //            } else {
-    //                console.log(event.results[i][0].transcript)
-
-    //                if (event.results[i][0].transcript == "小萌小萌") {
-    //                    speak('你好在');
-    //                }
-    //            }
-    //        }
-    //    }
-    //})
-
-    //$("input[type='text'],textarea").blur(function () {
-    //    newRecognition.stop();
-    //})
     $(".page-loader").hide();
 });
 
 function speak(text) {
-    console.log("开始播放：" + text)
 
-    var msg = new window.SpeechSynthesisUtterance(text);
+    var utterThis = new window.SpeechSynthesisUtterance(text);
 
-    window.speechSynthesis.speak(msg);
+    utterThis.onstart = function (event) {
+        console.log('开始播放：: ' + event.utterance.text);
+        newRecognition.stop();
+    }
 
-    console.log("播放结束")
+    utterThis.onend = function (event) {
+        console.log('播放结束')
+        newRecognition.start();
+    }
+
+    window.speechSynthesis.speak(utterThis);
+
 }

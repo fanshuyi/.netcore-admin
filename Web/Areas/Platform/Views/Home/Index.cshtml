@@ -141,6 +141,14 @@
                 </a>
             </li>
 
+             <li class="list-inline-item  text-nowrap">
+                <a href="javascript:void(0);" onclick="window.location.href='#@Url.Action("Index", "MessageCenter")'">
+                    <i class="fa fa-ravelry" aria-hidden="true"></i>
+                    
+                    @HtmlLocalizer["Assistant"]
+                </a>
+            </li>
+
             <li class="list-inline-item  text-nowrap">
 
                 <a href="@Url.Action("Logout", "Account", new {Area = ""})">
@@ -172,5 +180,6 @@
             </main>
         </div>
     </div>
+
 </body>
 </html>

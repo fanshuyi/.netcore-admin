@@ -1083,4 +1083,7 @@
   <data name="Recycle Bin" xml:space="preserve">
     <value>回收站</value>
   </data>
+  <data name="Assistant" xml:space="preserve">
+    <value>助理</value>
+  </data>
 </root>

@@ -65,8 +65,8 @@ namespace Web
             //efcore cache
             services.AddEFSecondLevelCache(options =>
             {
-                options.UseEasyCachingCoreProvider(EasyCachingConstValue.DefaultHybridName, true);//内存和redis混合
-                //options.UseEasyCachingCoreProvider(EasyCachingConstValue.DefaultInMemoryName, false);//内存
+                //options.UseEasyCachingCoreProvider(EasyCachingConstValue.DefaultHybridName, true);//内存和redis混合
+                options.UseEasyCachingCoreProvider(EasyCachingConstValue.DefaultInMemoryName, false);//内存
 
                 options.CacheAllQueries(CacheExpirationMode.Sliding, TimeSpan.FromDays(1)); //Sliding 滑动  Absolute 绝对
             });
@@ -207,14 +207,15 @@ namespace Web
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddAuthentication(
-
-                 options =>
+            services.AddAuthentication(options =>
                  {
-                 }
 
+                 }
                 )
-               .AddCookie()
+               .AddCookie(options =>
+               {
+
+               })
                 .AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = false;

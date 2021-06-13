@@ -1,4 +1,4 @@
-﻿using IServices.Infrastructure;
+using IServices.Infrastructure;
 using IServices.ISysServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,10 +14,10 @@ using Web.Extensions;
 namespace Web.Areas.Platform.Controllers
 {
     /// <summary>
-    /// 中国行政区
+    /// 知识库-分类
     /// </summary>
     [Area("Platform")]
-    public class CityCodeController : Controller
+    public class KnowledgeCategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
         private IJsonDataService jsonDataService;
@@ -30,7 +30,7 @@ namespace Web.Areas.Platform.Controllers
         /// </param>
         /// <param name="iSysUserService">
         /// </param>
-        public CityCodeController(IUnitOfWork unitOfWork, IJsonDataService jsonDataService)
+        public KnowledgeCategoryController(IUnitOfWork unitOfWork, IJsonDataService jsonDataService)
         {
             _unitOfWork = unitOfWork;
             this.jsonDataService = jsonDataService;
@@ -52,14 +52,13 @@ namespace Web.Areas.Platform.Controllers
         /// </returns>
         public async Task<IActionResult> IndexAsync(string keyword, string ordering, int pageIndex = 1, int pageSize = 20, bool search = false, bool toExcelFile = false)
         {
-            var model = jsonDataService.GetAll<CityCode>()
+            var model = jsonDataService.GetAll<KnowledgeCategory>()
                                  .Select(
                                      a =>
                                      new
                                      {
 
                                          Name = SqlDbFunctions.JsonValue(a.JsonDataStr, "$.Name"),
-                                         ZipCode = SqlDbFunctions.JsonValue(a.JsonDataStr, "$.ZipCode"),
                                          SystemId = SqlDbFunctions.JsonValue(a.JsonDataStr, "$.SystemId"),
                                          Enable = SqlDbFunctions.JsonValue(a.JsonDataStr, "$.Enable"),
                                          a.UserCreatedBy,
@@ -97,7 +96,7 @@ namespace Web.Areas.Platform.Controllers
         public async Task<IActionResult> DetailsAsync(string id)
         {
             var jsonData = await jsonDataService.FindAsync(id);
-            var item = JsonConvert.DeserializeObject<CityCode>(jsonData.JsonDataStr);
+            var item = JsonConvert.DeserializeObject<KnowledgeCategory>(jsonData.JsonDataStr);
             return View(item);
         }
 
@@ -119,10 +118,10 @@ namespace Web.Areas.Platform.Controllers
         /// </returns>
         public async Task<IActionResult> EditAsync(string id)
         {
-            var item = new CityCode();
+            var item = new KnowledgeCategory();
             if (!string.IsNullOrEmpty(id))
             {
-                item = JsonConvert.DeserializeObject<CityCode>(jsonDataService.FindAsync(id).Result.JsonDataStr);
+                item = JsonConvert.DeserializeObject<KnowledgeCategory>(jsonDataService.FindAsync(id).Result.JsonDataStr);
             }
             return View(item);
         }
@@ -138,7 +137,7 @@ namespace Web.Areas.Platform.Controllers
         /// </returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditAsync(string id, CityCode collection)
+        public async Task<IActionResult> EditAsync(string id, KnowledgeCategory collection)
         {
             if (!ModelState.IsValid)
             {

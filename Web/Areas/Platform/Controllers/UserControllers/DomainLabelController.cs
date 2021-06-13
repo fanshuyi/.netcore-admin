@@ -158,7 +158,7 @@ namespace Web.Areas.Platform.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteAsync(string[] id)
         {
-            _iDomainLabelService.Delete(a => id.Contains(a.Id));
+            await _iDomainLabelService.Delete(a => id.Contains(a.Id));
             var result = await _unitOfWork.CommitAsync();
             return new DeleteSuccessResult(result);
         }

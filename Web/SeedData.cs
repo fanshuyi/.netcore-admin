@@ -162,6 +162,33 @@ namespace Web
 
                 #endregion 基础内容 100
 
+#region  知识库 800
+ new SysController
+                        {
+                            SysAreaId = "Platform",
+                            Name = "知识库",
+                            SystemId = "800",
+                            Ico = "fa-users"
+                        },
+                         new SysController
+                        {
+                            SysAreaId = "Platform",
+                            Name = "知识库",
+                            ControllerName = "KnowledgeBase", ActionName="Index",
+                            SystemId = "800200"
+
+                        },
+                         new SysController
+                          {
+                            SysAreaId = "Platform",
+                            Name = "分类",
+                            ControllerName = "KnowledgeCategory", ActionName="Index",
+                            SystemId = "800300"
+
+                        },
+
+#endregion
+
                         #region 用户管理 900
 
                         new SysController
@@ -169,8 +196,7 @@ namespace Web
                             SysAreaId = "Platform",
                             Name = "用户管理",
                             SystemId = "900",
-                            Ico = "fa-users",
-                            Display = true
+                            Ico = "fa-users"
                         },
                         new SysController
                         {

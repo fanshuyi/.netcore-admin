@@ -27,7 +27,9 @@ newRecognition.onresult = function (event) {
 
 
 $(document).ready(function () {
-
+    $("#assistant").click(function () {
+        newRecognition.start();
+    })
     $(".page-loader").hide();
 })
 $(document).ajaxError(function (event, request) {

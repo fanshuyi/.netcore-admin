@@ -35,7 +35,6 @@ using System.Text;
 using Newtonsoft.Json.Serialization;
 using Web.Areas.Api.Models;
 using EasyCaching.Core;
-using EasyCaching.ResponseCaching;
 
 namespace Web
 {
@@ -66,11 +65,12 @@ namespace Web
             //efcore cache
             services.AddEFSecondLevelCache(options =>
             {
-                options.UseEasyCachingCoreProvider(EasyCachingConstValue.DefaultInMemoryName);
+                //options.UseEasyCachingCoreProvider(EasyCachingConstValue.DefaultHybridName, true);//内存和redis混合
+                options.UseEasyCachingCoreProvider(EasyCachingConstValue.DefaultInMemoryName, false);//内存
+
                 options.CacheAllQueries(CacheExpirationMode.Sliding, TimeSpan.FromDays(1)); //Sliding 滑动  Absolute 绝对
             });
 
-            services.AddEasyCachingResponseCaching(EasyCachingConstValue.DefaultInMemoryName);
 
             // More info: https://easycaching.readthedocs.io/en/latest/Redis/
             services.AddEasyCaching(options =>
@@ -81,9 +81,27 @@ namespace Web
                 options.UseRedis(config =>
                 {
                     config.DBConfig.AllowAdmin = true;
-                    config.DBConfig.Endpoints.Add(new EasyCaching.Core.Configurations.ServerEndPoint(Configuration["ConnectionStrings:Redis:Host"], int.Parse(Configuration["ConnectionStrings:Redis:Port"])));
-                    config.DBConfig.Password = Configuration["ConnectionStrings:Redis:Password"];
-                    config.DBConfig.IsSsl = bool.Parse(Configuration["ConnectionStrings:Redis:IsSsl"]);
+                    config.DBConfig.Endpoints.Add(new EasyCaching.Core.Configurations.ServerEndPoint(Configuration["Redis:Host"], int.Parse(Configuration["Redis:Port"])));
+                    config.DBConfig.Password = Configuration["Redis:Password"];
+                    config.DBConfig.IsSsl = bool.Parse(Configuration["Redis:IsSsl"]);
+                });
+
+                //  使用hybird
+                options.UseHybrid(config =>
+                {
+                    config.LocalCacheProviderName = EasyCachingConstValue.DefaultInMemoryName;
+                    config.DistributedCacheProviderName = EasyCachingConstValue.DefaultRedisName;
+                    config.TopicName = "test_topic";
+                });
+
+                // 使用redis作为缓存总线
+                options.WithRedisBus(config =>
+                {
+                    config.AllowAdmin = true;
+                    config.Endpoints.Add(new EasyCaching.Core.Configurations.ServerEndPoint(Configuration["Redis:Host"], int.Parse(Configuration["Redis:Port"])));
+                    config.Password = Configuration["Redis:Password"];
+                    config.IsSsl = bool.Parse(Configuration["Redis:IsSsl"]);
+                    config.Database = 6;
                 });
             });
 
@@ -381,7 +399,6 @@ namespace Web
 
             app.UseCookiePolicy();
 
-            app.UseEasyCachingResponseCaching();
 
             app.UseSwagger();
 

@@ -54,7 +54,7 @@ namespace Web.Areas.Api.Controllers
         {
             try
             {
-                // 百度词条接口 https://www.baidu.com/s?wd=keyword&rn=1&tn=json
+                // 百度新闻接口 https://www.baidu.com/s?wd=keyword&rn=1&tn=json
 
 
                 var item = await jsonDataService.SaveAsync(id, value);

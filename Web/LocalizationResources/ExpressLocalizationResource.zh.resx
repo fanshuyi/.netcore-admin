@@ -1086,4 +1086,10 @@
   <data name="Assistant" xml:space="preserve">
     <value>助理</value>
   </data>
+   <data name="KnowledgeCategory" xml:space="preserve">
+    <value>知识库分类</value>
+  </data>
+  <data name="UsageCount" xml:space="preserve">
+    <value>使用次数</value>
+  </data>
 </root>

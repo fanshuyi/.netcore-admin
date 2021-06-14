@@ -24,7 +24,6 @@ namespace Models.UserModels
         /// 分类名称
         /// </summary>
         [Required]
-        [MaxLength(128)]
         public string Name { get; set; }
 
 
@@ -32,13 +31,9 @@ namespace Models.UserModels
         /// <summary>
         /// 系统编号
         /// </summary>
-        [MaxLength(50)]
         [Required]
         public string SystemId { get; set; }
 
-        [ScaffoldColumn(false)]
-        [NotMapped]
-        public bool Selected { get; set; }
 
         public bool Enable { get; set; }
     }

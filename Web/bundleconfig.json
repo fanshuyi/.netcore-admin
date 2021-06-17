@@ -37,7 +37,7 @@
       "node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js",
       "node_modules/@ckeditor/ckeditor5-build-classic/translations/zh-cn.js",
       "node_modules/chart.js/dist/chart.min.js",
-      "wwwroot/js/pinyin.js", 
+      "wwwroot/js/pinyin.js",
       "wwwroot/js/select2.js",
       "wwwroot/js/site.js"
     ],

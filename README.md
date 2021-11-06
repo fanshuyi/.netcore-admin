@@ -33,4 +33,4 @@
 9. 系统模块基于代码初始化
 
 # 五、演示地址
-https://netcore-admin.azurewebsites.net/ 账号：test 密码：test@123
+https://www.rongzhong.live
